@@ -1,0 +1,15 @@
+{
+  "name": "playground-optical-studio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Eleven browser-local optical art experiments",
+  "scripts": {
+    "dev": "python3 -m http.server 4173 --bind 127.0.0.1",
+    "check": "node --check engine.js",
+    "test": "node tests/studio.cjs",
+    "test:video": "node tests/video.cjs"
+  },
+  "devDependencies": {
+    "playwright": "1.62.1"
+  }
+}

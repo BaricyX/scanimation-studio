@@ -1,0 +1,44 @@
+{
+  "createdNodeIds": [],
+  "mutatedNodeIds": [
+    "0:1"
+  ],
+  "collections": {
+    "primitives": "VariableCollectionId:5:2",
+    "theme": "VariableCollectionId:5:3"
+  },
+  "variables": {
+    "color/bg": "VariableID:5:4",
+    "color/surface": "VariableID:5:5",
+    "color/ink": "VariableID:5:6",
+    "color/muted": "VariableID:5:7",
+    "color/line": "VariableID:5:8",
+    "color/silver": "VariableID:5:9",
+    "theme/color/bg": "VariableID:5:10",
+    "theme/color/surface": "VariableID:5:11",
+    "theme/color/ink": "VariableID:5:12",
+    "theme/color/muted": "VariableID:5:13",
+    "theme/color/line": "VariableID:5:14",
+    "theme/color/silver": "VariableID:5:15",
+    "space/8": "VariableID:5:16",
+    "space/12": "VariableID:5:17",
+    "space/16": "VariableID:5:18",
+    "space/24": "VariableID:5:19",
+    "space/26": "VariableID:5:20",
+    "space/32": "VariableID:5:21",
+    "space/48": "VariableID:5:22",
+    "radius/artwork": "VariableID:5:23",
+    "radius/action": "VariableID:5:24"
+  },
+  "styles": {
+    "Display": "S:2adfce9c6adf176bb9481b0cde879e2719307240,",
+    "Title": "S:d8b05d8ed6a809fc579eaae4591682b14cdc8fc4,",
+    "Body": "S:e1926f321403433c5e139b14b194cd3f6587dc6b,",
+    "Caption": "S:00c01aed5a63eb5002d9656cf5bee1aeb347bb33,",
+    "Latin": "S:3a94dae156928714ea23054afd7d3fcc12738936,"
+  },
+  "imageHash": "b11cbec36183852a25649b24586a37e746db96c7",
+  "pageId": "0:1",
+  "fileKey": "rxuM8vxmzpTRhOMvKqZgwm",
+  "fileUrl": "https://www.figma.com/design/rxuM8vxmzpTRhOMvKqZgwm"
+}

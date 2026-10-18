@@ -1,349 +1,47 @@
 <!doctype html>
-<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#050505"><title>PLAY / 创意游乐场</title>
-<style>
-:root{--ink:#f2f2ef;--muted:#969b9b;--paper:#090a0b;--lime:#d5f46a;--line:#292c2e}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Helvetica Neue",sans-serif}button,input,select{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible{outline:2px solid #3e7d63}header{position:sticky;top:0;z-index:15;background:#090a0be8;backdrop-filter:blur(14px);border-bottom:1px solid var(--line);height:68px;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(18px,4vw,60px)}.brand{font-size:23px;font-weight:900;letter-spacing:-1.5px}.brand span{font-size:11px;font-weight:500;letter-spacing:0;margin-left:9px}nav{display:flex;gap:8px}.nav{background:none;border:0;border-radius:25px;padding:11px 16px;color:var(--muted)}.nav.active{background:var(--ink);color:white}main{max-width:1200px;margin:auto;padding:0 22px 80px}.hero{padding:65px 0 48px;display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:center}.eyebrow{font-size:12px;letter-spacing:3px;font-weight:800;text-transform:uppercase}.hero h1{font-size:clamp(54px,8vw,110px);line-height:.97;letter-spacing:-6px;margin:23px 0}.hero h1 i{font-family:Georgia,serif;font-weight:400}.hero p{font-size:17px;color:var(--muted);line-height:1.7;max-width:450px}.hero-art{aspect-ratio:1;max-width:390px;border-radius:50%;background:radial-gradient(circle at 30% 25%,#fff5 0 6%,transparent 20%),radial-gradient(ellipse at 36% 32%,#ffaece,#c5a7ff 34%,#5a6ff2 60%,#1b2221 80%);box-shadow:inset -25px -35px 40px #10103765,25px 25px 0 var(--lime);animation:float 6s ease-in-out infinite;justify-self:center}@keyframes float{50%{transform:translateY(-15px) rotate(8deg)}}.section-head{display:flex;align-items:end;justify-content:space-between;gap:15px;margin:22px 0}.section-head h2{font-size:clamp(27px,4vw,43px);letter-spacing:-2px;margin:0}.muted{color:var(--muted)}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.tile{border:1px solid var(--line);background:white;border-radius:19px;overflow:hidden;text-align:left;padding:0;transition:transform .2s,box-shadow .2s}.tile:hover{transform:translateY(-4px);box-shadow:0 15px 30px #1b22211a}.tile-visual{height:210px;display:grid;place-items:center;overflow:hidden;position:relative}.tile-visual b{font-size:80px;letter-spacing:-8px}.tile:nth-child(1) .tile-visual{background:#c8e4ff}.tile:nth-child(1) .tile-visual b{background:repeating-linear-gradient(90deg,#192a39 0 4px,#a1bfe6 4px 8px);background-clip:text;color:transparent}.tile:nth-child(2) .tile-visual{background:#d8ff5c}.tile:nth-child(2) .tile-visual b{color:#272c24;transform:rotate(-15deg)}.tile:nth-child(3) .tile-visual{background:#ffc2bd}.tile:nth-child(3) .tile-visual b{transform:rotate(-17deg)}.tile:nth-child(4) .tile-visual{background:#d6c7ff}.tile:nth-child(5) .tile-visual{background:#b4e9e4}.tile:nth-child(6) .tile-visual{background:#ffdb9a}.tile:nth-child(7) .tile-visual{background:#e7e7e7}.tile-info{padding:19px}.tile-info strong{font-size:20px;display:block}.tile-info p{font-size:13px;color:var(--muted);margin:7px 0 0}.tag{font-size:10px;letter-spacing:1.2px;font-weight:800;opacity:.65}.work{display:none}.work.show{display:block}.back{background:transparent;border:0;padding:20px 0;font-weight:700}.editor{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:22px}.preview-shell{background:#202829;border-radius:23px;min-height:490px;padding:22px;display:flex;flex-direction:column}.preview-head{color:#c1d2ce;font-size:12px;display:flex;justify-content:space-between}.stage{margin:auto;position:relative;width:min(100%,550px);aspect-ratio:4/5;border-radius:13px;overflow:hidden;background:#ecede8;touch-action:none;user-select:none;box-shadow:0 18px 35px #0004}.stage canvas{width:100%;height:100%;display:block}.stage .overlay{position:absolute;inset:0;touch-action:none}.stage .drag-card{position:absolute;top:25%;left:10%;width:80%;height:45%;border:2px solid #dbff71;touch-action:none;cursor:grab;box-shadow:0 5px 22px #0004}.stage .hint{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);white-space:nowrap;border-radius:20px;background:#1d282acb;color:white;padding:8px 12px;font-size:11px;pointer-events:none}.panel{background:white;border:1px solid var(--line);border-radius:22px;padding:22px;align-self:start}.panel h3{font-size:23px;margin:5px 0 10px}.panel p{font-size:13px;line-height:1.7;color:var(--muted)}.field{margin:20px 0}.field label{font-size:12px;font-weight:750;display:flex;justify-content:space-between;margin-bottom:9px}.field input[type=range]{width:100%;accent-color:#202829}.field input[type=text],.field select{width:100%;border:1px solid var(--line);border-radius:9px;padding:11px;background:#fafafa}.btn{border:1px solid var(--ink);background:var(--ink);color:white;padding:12px 16px;border-radius:11px;font-weight:750}.btn.alt{background:white;color:var(--ink)}.btn.lime{background:var(--lime);color:var(--ink);border-color:var(--lime)}.actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}.actions .btn{flex:1;min-width:115px}.file{display:block;background:#f3f4f1;border:1px dashed #abb7ad;padding:14px;border-radius:11px;text-align:center;cursor:pointer;font-size:13px}.file input{display:none}.hidden{display:none!important}.small{font-size:11px!important}.note{background:#f5f6f2;border-radius:10px;padding:12px}.foot{padding:45px 0;border-top:1px solid var(--line);font-size:12px;color:var(--muted);margin-top:70px}.dot{display:inline-block;width:8px;height:8px;background:#90c86d;border-radius:50%;margin-right:8px}@media(max-width:850px){.hero{grid-template-columns:1fr 160px;padding:45px 0}.hero h1{letter-spacing:-3px}.hero-art{width:150px}.cards{grid-template-columns:repeat(2,1fr)}.editor{grid-template-columns:1fr}.preview-shell{min-height:0;padding:13px}.stage{width:min(100%,450px)}.panel{order:2}}@media(max-width:480px){header{height:58px;padding:0 16px}.brand{font-size:20px}.brand span{display:none}.nav{padding:9px 10px;font-size:12px}main{padding:0 13px 40px}.hero{grid-template-columns:1fr 95px;gap:6px;padding:38px 0}.hero h1{font-size:51px;margin:17px 0}.hero p{font-size:13px}.hero-art{width:86px;box-shadow:9px 9px 0 var(--lime)}.tile-visual{height:145px}.tile-visual b{font-size:56px}.tile-info{padding:13px}.tile-info strong{font-size:16px}.tile-info p{font-size:11px}.cards{gap:9px}.preview-shell{border-radius:15px}.panel{padding:17px}.stage{width:100%}}
- .hero{min-height:420px}.hero h1{letter-spacing:-.075em}.hero-art{max-width:320px}.section-head{margin:40px 0 24px}.tile{border:0;background:transparent;border-radius:0}.tile-visual{border-radius:16px;height:250px}.tile-info{padding:14px 2px 22px}.tile-info strong{font-size:19px;letter-spacing:-.03em}.tile:hover{box-shadow:none}.tile:hover .tile-visual{filter:saturate(1.15)}.panel{border:0;background:transparent;padding:8px 0}.panel h3{font-size:34px;letter-spacing:-.05em}.panel .file{background:white}.advanced{margin-top:18px;color:var(--muted);font-size:12px}.advanced summary{cursor:pointer;list-style:none}.advanced summary::after{content:" ↗"}.advanced[open] summary{margin-bottom:10px}.hint{opacity:.78}.preview-shell{background:#222928}.foot{margin-top:65px}.field label{font-size:13px}.nav{font-weight:650}@media(max-width:480px){.hero{min-height:280px}.tile-visual{height:160px}.tile-info strong{font-size:16px}.panel h3{font-size:29px}.section-head{margin:25px 0 15px}}  .tile-visual{filter:saturate(.72) brightness(.82);transition:filter .25s,transform .25s}.tile:hover .tile-visual{filter:saturate(.96) brightness(.98)}.hero-art{filter:saturate(.68);box-shadow:inset -25px -35px 40px #10103765,22px 22px 0 #303a22}.panel{color:var(--ink)}.panel .file{background:#17191a;border-color:#44494a;color:#ecefed}.field input[type=text],.field select{background:#17191a;color:#f3f3f1;border-color:#363b3d}.btn{background:#e9ebe7;color:#101112;border-color:#e9ebe7}.btn.alt{background:#151719;color:#eceeed;border-color:#393e40}.btn.lime{background:var(--lime);color:#12140e;border-color:var(--lime)}.note{background:#17191a;color:#a7adad}.preview-shell{background:#161819;border:1px solid #2b3031}.nav.active{background:#e8eae7;color:#0b0d0e}.nav{color:#b4b8b7}.hero p,.tile-info p{color:var(--muted)}.foot{color:#777f7e}.tile:nth-child(1) .tile-visual{background:#2c3f51}.tile:nth-child(2) .tile-visual{background:#879c42}.tile:nth-child(3) .tile-visual{background:#8d5c62}.tile:nth-child(4) .tile-visual{background:#6a5c8b}.tile:nth-child(5) .tile-visual{background:#427c77}.tile:nth-child(6) .tile-visual{background:#96784a} 
-/* ART DIRECTION / INK BLACK */
-:root{--ink:#fafaf7;--muted:#b9b9b4;--paper:#050505;--lime:#dfff66;--line:#323232}
-body{background:#050505;color:#fafaf7;-webkit-font-smoothing:antialiased}
-header{background:rgba(5,5,5,.92);border-bottom:1px solid #292929}
-.brand{font-family:"Arial Black",Impact,"Helvetica Neue",sans-serif;font-weight:900;letter-spacing:-1.7px;color:#fff}
-.brand span{color:#dfff66;letter-spacing:.11em;font-size:10px;font-weight:650}
-.nav{color:#e1e1dd;transition:background .2s,color .2s}
-.nav.active{background:#f5f5f0;color:#080808}
-.nav:hover:not(.active){background:#202020;color:#fff}
-main{max-width:1380px}
-.hero{min-height:550px;padding:75px 0 95px;grid-template-columns:1fr .85fr;overflow:hidden}
-.hero h1{font-family:"Bodoni MT","Didot","Times New Roman","Noto Serif SC","Songti SC",serif;font-size:clamp(80px,10vw,158px);font-weight:700;line-height:.96;letter-spacing:-.095em;margin:15px 0 35px}
-.hero h1 i{font-family:"Bodoni MT","Didot","Times New Roman","Noto Serif SC","Songti SC",serif;font-weight:400;font-style:italic;color:#dfff66}
-.hero-cn{font-family:"Noto Serif SC","Songti SC","STSong",serif}
-.hero-asterisk{display:inline-block;font-family:Georgia,serif;font-size:.3em;vertical-align:top;margin:.05em 0 0 .15em;color:#fff;animation:spin 18s linear infinite}
-@keyframes spin{to{transform:rotate(360deg)}}
-.hero-art{width:min(33vw,420px);height:auto;max-width:none;aspect-ratio:1;border-radius:50%;position:relative;overflow:visible;isolation:isolate;justify-self:center;background:radial-gradient(circle at 37% 24%,#fff 0%,#b6f6eb 4%,#2a6d6c 14%,transparent 31%),radial-gradient(ellipse at 64% 70%,#091016 8%,#153941 28%,#a5d8ce 49%,#070b0e 73%);box-shadow:inset -25px -28px 42px #000b,0 0 0 1px #445d5b,0 0 100px #7dffd414;filter:none;animation:float 8s ease-in-out infinite}
-.hero-art:before{content:"";position:absolute;inset:10%;border:1px solid #c8fff268;border-radius:50%;transform:rotate(-28deg) scaleY(.45);box-shadow:0 0 20px #96f5e544}
-.hero-art:after{content:"";position:absolute;inset:5%;border-radius:50%;background:linear-gradient(120deg,transparent 28%,#ffffff22 35%,transparent 40%,transparent 70%,#dfff661b 78%,transparent 82%);mix-blend-mode:screen}
-.orbit{position:absolute;inset:-12%;border:1px solid #dfff6666;border-radius:50%;transform:rotate(35deg) scaleY(.43);pointer-events:none}
-.orbit-b{transform:rotate(-40deg) scaleY(.61);border-color:#a6fff344}
-.hero-core{position:absolute;inset:37%;border-radius:50%;background:radial-gradient(circle at 28% 28%,#fff,#dfff66 23%,#37614b 62%,#06100b);box-shadow:0 0 38px #dfff6655}
-.art-mark{position:absolute;inset:0;display:grid;place-items:center;color:#ffffffc9;font-family:Didot,Georgia,serif;font-style:italic;font-size:clamp(95px,15vw,220px);font-weight:700;text-shadow:0 5px 45px #0009;mix-blend-mode:screen}
-.art-mark span{font-size:.23em;position:absolute;right:24%;top:21%;color:#dfff66}
-.section-head{border-top:1px solid #333;padding-top:24px;margin-top:0;margin-bottom:25px}
-.section-head h2{font-family:"Noto Serif SC","Songti SC","STSong",serif;font-size:clamp(30px,4vw,50px);font-weight:600;letter-spacing:-.06em}
-.heading-mark{font-family:Georgia,serif;color:#dfff66;font-weight:400;font-size:.5em;vertical-align:top}
-.cards{grid-template-columns:repeat(3,minmax(0,1fr));gap:26px 16px}
-.tile{border:0;background:transparent;overflow:visible;box-shadow:none;text-align:left}
-.tile-visual{height:clamp(210px,24vw,330px);border-radius:3px;position:relative;isolation:isolate;filter:none!important;transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s}
-.tile:hover .tile-visual{transform:translateY(-5px);box-shadow:0 22px 55px #0008}
-.tile-visual:after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at 35% 25%,#fff4,transparent 30%),linear-gradient(135deg,#ffffff18,transparent 40%,#0005)}
-.tile-visual b{position:relative;z-index:1;font-family:Didot,Georgia,"Times New Roman",serif;font-weight:700;font-size:clamp(100px,13vw,185px);line-height:1;color:#fff;letter-spacing:-.11em;text-shadow:0 8px 30px #0007;transition:transform .4s}
-.tile:hover .tile-visual b{transform:rotate(-8deg) scale(1.08)}
-.tile:nth-child(1) .tile-visual{background:radial-gradient(circle at 30% 30%,#a8d1e7,#263b64 50%,#0a111c)}
-.tile:nth-child(1) .tile-visual b{background:repeating-linear-gradient(90deg,#f8ffff 0 3px,#091a31 3px 7px);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 7px 12px #0007)}
-.tile:nth-child(2) .tile-visual{background:radial-gradient(circle at 28% 18%,#fff8a6,#d2f368 40%,#45631c)}
-.tile:nth-child(2) .tile-visual b{color:#12210d;transform:rotate(-12deg)}
-.tile:nth-child(3) .tile-visual{background:radial-gradient(circle at 24% 20%,#ffe0d7,#cc7899 46%,#422044)}
-.tile:nth-child(4) .tile-visual{background:radial-gradient(circle at 25% 20%,#e7d5ff,#7951bd 50%,#171329)}
-.tile:nth-child(5) .tile-visual{background:radial-gradient(circle at 24% 18%,#d5fff2,#389e9b 43%,#0a2932)}
-.tile:nth-child(6) .tile-visual{background:radial-gradient(circle at 25% 18%,#fff0bd,#bd794e 45%,#372126)}
-.art-index{position:absolute;z-index:3;left:18px;top:15px;color:#fff;font-family:Georgia,serif;font-size:14px;letter-spacing:.1em;text-shadow:0 1px 8px #0008}
-.art-arrow{position:absolute;z-index:3;right:17px;bottom:13px;font-family:Georgia,serif;font-size:26px;color:#fff;text-shadow:0 1px 8px #0008}
-.tile-info{display:flex;justify-content:space-between;align-items:center;padding:17px 0 12px;border-bottom:1px solid #393939}
-.tile-info strong{font-family:"Noto Serif SC","Songti SC","STSong",serif;font-weight:600;font-size:23px;letter-spacing:-.05em;color:#fff}
-.tile-open{font-size:22px;color:#dfff66}
-.panel h3{font-family:"Noto Serif SC","Songti SC","STSong",serif;font-weight:600;font-size:40px}
-.panel .file{border:1px solid #575757;background:#171717;color:#fff}
-.panel .file:hover{border-color:#dfff66}
-.field label{color:#f4f4f0}
-.field input[type=range]{accent-color:#dfff66}
-.field input[type=text],.field select{background:#141414;border-color:#525252;color:#fff}
-.btn{background:#f7f7f3;color:#090909;border-color:#f7f7f3}
-.btn.alt{background:#161616;border-color:#666;color:#fff}
-.btn.lime{background:#dfff66;border-color:#dfff66;color:#0b0b0b}
-.note{background:#151515;color:#d1d1cc}
-.advanced{color:#e2e2de}
-.preview-shell{background:#101010;border:1px solid #353535}
-.preview-head{color:#f5f5f0}
-.foot{border-color:#2d2d2d;color:#a8a8a3}
-@media(max-width:850px){.hero{min-height:400px}.hero h1{font-size:clamp(70px,11vw,110px)}.hero-art{width:220px}.tile-visual{height:220px}}
-@media(max-width:480px){.hero{min-height:340px;padding:54px 0 55px;grid-template-columns:1fr 110px;gap:0}.hero h1{font-size:clamp(55px,14vw,76px);margin:18px 0}.hero-art{width:105px}.art-mark{font-size:80px}.hero-asterisk{font-size:.23em}.cards{gap:22px 11px}.tile-visual{height:168px}.tile-visual b{font-size:93px}.tile-info strong{font-size:18px}.tile-info{padding:13px 0 8px}.art-index{top:10px;left:11px;font-size:11px}.art-arrow{right:10px;bottom:7px;font-size:19px}.section-head h2{font-size:33px}.panel h3{font-size:32px}}
-@media(prefers-reduced-motion:reduce){.hero-art,.hero-asterisk{animation:none}.tile,.tile-visual,.tile-visual b{transition:none}}
-
-/* MINIMAL SWIPE GALLERY */
-body.on-home{background:#000}
-body.on-home header{height:74px;background:#000;border:0;padding:0 clamp(20px,5vw,75px)}
-body.on-home .brand{font-family:Georgia,serif;font-weight:500;font-size:24px;letter-spacing:-.06em}
-body.on-home .brand span{display:none}
-body.on-home nav{display:none}
-body.on-home main{max-width:none;padding:0}
-body.on-home .foot{display:none}
-.gallery-home{height:calc(100dvh - 74px);min-height:570px;background:#000;position:relative;display:flex;flex-direction:column;overflow:hidden}
-.gallery-heading{display:flex;justify-content:space-between;padding:20px clamp(22px,6vw,90px);font:12px Georgia,serif;letter-spacing:.18em;color:#fff}
-.gallery-scene{position:relative;flex:1;min-height:0;display:flex;align-items:center}
-.gallery-line{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none;opacity:.95}
-.gallery-line path{fill:none;stroke:#fff;stroke-width:1.7;vector-effect:non-scaling-stroke;stroke-linecap:round}
-.gallery-track{width:100%;height:100%;display:flex;align-items:center;gap:clamp(38px,7vw,130px);overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;scrollbar-width:none;padding:0 max(25vw,calc((100vw - 440px)/2));touch-action:pan-x pan-y}
-.gallery-track::-webkit-scrollbar{display:none}
-.gallery-item{flex:0 0 clamp(230px,30vw,380px);height:clamp(240px,32vw,385px);position:relative;scroll-snap-align:center;scroll-snap-stop:always;background:#090909d9;border:1.5px solid #fff;color:#fff;border-radius:4px;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:background .25s,transform .25s;backdrop-filter:blur(8px)}
-.gallery-item:nth-child(2n){transform:translateY(65px)}
-.gallery-item:nth-child(3n){transform:translateY(-45px)}
-.gallery-item:hover{background:#1a1a1a}
-.gallery-number{position:absolute;top:19px;left:22px;font:13px Georgia,serif;letter-spacing:.1em}
-.gallery-symbol{font:normal clamp(95px,12vw,170px) Georgia,"Times New Roman",serif;line-height:1;letter-spacing:-.09em;color:#fff}
-.gallery-name{font-family:"Noto Serif SC","Songti SC","STSong",serif;font-size:clamp(23px,2.5vw,33px);letter-spacing:.02em;margin-top:25px}
-.gallery-enter{position:absolute;bottom:16px;right:20px;font:25px Georgia,serif}
-.gallery-bottom{height:118px;flex:none;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(20px,5vw,75px);gap:20px}
-.gallery-dock{display:flex;align-items:center;gap:12px;padding:8px 13px;border:1px solid #444;background:#181818;border-radius:100px}
-.gallery-dock button{width:45px;height:45px;border:0;border-radius:50%;background:none;color:white;font:28px Georgia,serif}
-.gallery-dock button:active{background:#393939}
-.dock-rule{width:1px;height:23px;background:#454545}
-.gallery-swipe{color:#c9c9c9;font:11px Georgia,serif;letter-spacing:.25em}
-.gallery-launch{border:1px solid #555;border-radius:50%;background:#202020;color:white;width:62px;height:62px;font:34px Georgia,serif}
-@media(max-width:600px){
-body.on-home header{height:60px;padding:0 25px}
-body.on-home .brand{font-size:21px}
-.gallery-home{height:calc(100dvh - 60px);min-height:510px}
-.gallery-heading{padding:12px 24px;font-size:11px}
-.gallery-line{top:6%;height:82%}
-.gallery-track{gap:54px;padding:0 calc((100vw - 230px)/2)}
-.gallery-item{flex-basis:230px;height:275px;background:#080808ec}
-.gallery-item:nth-child(2n){transform:translateY(56px)}
-.gallery-item:nth-child(3n){transform:translateY(-34px)}
-.gallery-symbol{font-size:112px}
-.gallery-name{font-size:24px;margin-top:17px}
-.gallery-bottom{height:110px;padding:0 22px}
-.gallery-dock{gap:4px;padding:7px 8px}
-.gallery-dock button{width:40px;height:42px;font-size:26px}
-.gallery-swipe{display:none}
-.gallery-launch{width:56px;height:56px}
-}
-@media(prefers-reduced-motion:reduce){.gallery-item{transition:none}}
-
-/* Hanging artworks / vivid accents */
-.gallery-home{background:#030304}
-.gallery-scene{isolation:isolate}
-.gallery-line{z-index:0;top:-15%;height:65%;opacity:.9}
-.gallery-line path{stroke:#c9d2d0;stroke-width:2.2}
-.gallery-track{z-index:1;align-items:flex-start;padding-top:clamp(85px,13vh,150px)}
-.gallery-item{overflow:visible;flex-shrink:0;background:#121216;border:1px solid #60636b;border-radius:15px;box-shadow:0 20px 48px #000c,0 0 0 1px #ffffff0a;transform-origin:50% -80px;animation:hanging 6s ease-in-out infinite alternate}
-.gallery-item:nth-child(2n){transform:translateY(65px) rotate(2deg);animation-delay:-2s}
-.gallery-item:nth-child(3n){transform:translateY(-20px) rotate(-2deg);animation-delay:-4s}
-.gallery-hanger{position:absolute;bottom:100%;left:50%;width:1.5px;height:clamp(85px,13vh,150px);background:linear-gradient(#f5f5f5,#a3a9ac);transform:translateX(-50%);pointer-events:none}
-.gallery-hanger:after{content:"";position:absolute;bottom:-5px;left:-7px;width:15px;height:15px;background:#dedede;border:3px solid #26262a;border-radius:50%;box-sizing:border-box}
-.gallery-symbol{font-family:Georgia,"Times New Roman",serif;font-size:clamp(110px,13vw,175px);filter:drop-shadow(0 6px 15px #0005)}
-.gallery-item:nth-child(11n + 1) .gallery-symbol{color:#84d7ff}
-.gallery-item:nth-child(11n + 2) .gallery-symbol{color:#e7ff6e}
-.gallery-item:nth-child(11n + 3) .gallery-symbol{color:#ff96b2}
-.gallery-item:nth-child(11n + 4) .gallery-symbol{color:#c2a0ff}
-.gallery-item:nth-child(11n + 5) .gallery-symbol{color:#77f2d2}
-.gallery-item:nth-child(11n + 6) .gallery-symbol{color:#ffb978}
-.gallery-item:nth-child(11n + 7) .gallery-symbol{color:#b9d8ff}
-.gallery-item:nth-child(11n + 8) .gallery-symbol{color:#ffdb82}
-.gallery-item:nth-child(11n + 9) .gallery-symbol{color:#ff9de1}
-.gallery-item:nth-child(11n + 10) .gallery-symbol{color:#a4ffa7}
-.gallery-item:nth-child(11n) .gallery-symbol{color:#ff958f}
-.gallery-name{color:#fdfdfd}
-.gallery-number{color:#f3f3f3}
-.gallery-enter{color:#e7ff77}
-.gallery-item:hover{background:#202026}
-@keyframes hanging{from{rotate:-.8deg}to{rotate:.8deg}}
-@media(max-width:600px){.gallery-track{padding-top:100px}.gallery-hanger{height:100px}.gallery-item:nth-child(2n){transform:translateY(50px) rotate(2deg)}.gallery-item:nth-child(3n){transform:translateY(-10px) rotate(-2deg)}}
-@media(prefers-reduced-motion:reduce){.gallery-item{animation:none}}
-
-/* Physical clothesline: each card connects to a continuous horizontal cable */
-.gallery-scene{position:relative}
-.gallery-track{position:relative;align-items:flex-start;padding-top:clamp(160px,22vh,230px);gap:clamp(38px,7vw,130px)}
-.gallery-item{position:relative;transform:none!important;animation:none!important;overflow:visible;isolation:visible}
-.gallery-item:nth-child(n){transform:none!important}
-.gallery-item:before{content:"";position:absolute;z-index:-1;pointer-events:none;left:-2px;right:calc(-1 * clamp(38px,7vw,130px) - 2px);top:calc(-1 * clamp(160px,22vh,230px) + 35px);height:2px;background:#e5e5e3;box-shadow:0 0 3px #fff4}
-.gallery-item:after{content:"";position:absolute;left:50%;top:calc(-1 * clamp(160px,22vh,230px) + 27px);width:16px;height:16px;border:2px solid #e6e6e3;border-radius:50%;background:#090909;transform:translateX(-50%);box-shadow:0 0 0 4px #050505;pointer-events:none}
-.gallery-hanger{height:calc(clamp(160px,22vh,230px) - 35px);bottom:100%;width:2px;background:#dededc;box-shadow:none}
-.gallery-hanger:after{bottom:-7px;left:-8px;width:17px;height:17px;background:#e7e7e5;border:4px solid #161616;box-shadow:0 0 0 1px #c5c5c5}
-.gallery-enter,.gallery-launch,.gallery-dock button{font-family:Arial,Helvetica,sans-serif;font-variant-emoji:text}
-.gallery-enter{background:none!important;box-shadow:none!important;filter:none!important;font-size:26px}
-.gallery-launch{background:#171719;color:#fff}
-.gallery-item{background:#131316;border-color:#666}
-.gallery-symbol{font-variant-emoji:text}
-@media(max-width:600px){
-.gallery-track{padding-top:170px;gap:54px}
-.gallery-item:before{top:-134px;right:-56px}
-.gallery-item:after{top:-142px}
-.gallery-hanger{height:134px}
-.gallery-item:nth-child(n){transform:none!important}
-}
-.export-panel{border:1px solid #414141;border-radius:13px;padding:15px;margin-top:20px}.export-panel summary{font-size:14px;font-weight:750;color:#fff}.export-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:14px}.export-grid button{border:1px solid #666;border-radius:8px;background:#191919;color:#fff;padding:12px 3px;font-size:12px}.export-grid button:first-child{background:#dfff66;border-color:#dfff66;color:#080808;font-weight:800}#exportStatus{font-size:12px;color:#c9cbc5;line-height:1.6;margin:10px 0 0}
-/* Curved clothesline and chromatic hanging cards */
-.gallery-home{background:radial-gradient(ellipse at 53% 45%,#17101f 0%,#07070b 52%,#020203 100%)}
-.gallery-scene{background:radial-gradient(ellipse at 55% 35%,#23152e42,transparent 65%)}
-.gallery-track{position:relative;padding-top:185px;isolation:isolate}
-.clothesline{position:absolute;left:0;top:0;height:170px;overflow:visible;pointer-events:none;z-index:0}
-.clothesline path{fill:none;stroke:#c5adff;stroke-width:3;stroke-linecap:round;filter:drop-shadow(0 0 6px #8d60f280)}
-.gallery-item{z-index:1;animation:none!important;transform:none!important;border:1px solid var(--card-accent,#b3a3e9);background:linear-gradient(155deg,#22202c,#0e0d13 78%);box-shadow:0 15px 48px #000a,0 0 24px color-mix(in srgb,var(--card-accent,#a7a7fa),transparent 83%)}
-.gallery-item:nth-child(11n+1){--card-accent:#7bd8ff}
-.gallery-item:nth-child(11n+2){--card-accent:#dcff70}
-.gallery-item:nth-child(11n+3){--card-accent:#ff93b5}
-.gallery-item:nth-child(11n+4){--card-accent:#ba99ff}
-.gallery-item:nth-child(11n+5){--card-accent:#68f5d3}
-.gallery-item:nth-child(11n+6){--card-accent:#ffb97c}
-.gallery-item:nth-child(11n+7){--card-accent:#94bfff}
-.gallery-item:nth-child(11n+8){--card-accent:#ffe38c}
-.gallery-item:nth-child(11n+9){--card-accent:#ff99e8}
-.gallery-item:nth-child(11n+10){--card-accent:#8fffa5}
-.gallery-item:nth-child(11n){--card-accent:#ff8f89}
-.gallery-item:before{display:none!important}
-.gallery-item:after{content:"";position:absolute;left:50%;top:calc(-1 * var(--hang-len,120px) - 8px);width:14px;height:14px;border:3px solid #e8e2ff;background:#5c3a83;border-radius:50%;transform:translateX(-50%);box-shadow:0 0 12px #ae86ff99}
-.gallery-hanger{position:absolute;left:50%;bottom:100%;height:var(--hang-len,120px);width:2px;background:linear-gradient(#c5adff,#e5e5ee);transform:translateX(-50%)}
-.gallery-hanger:after{background:var(--card-accent);border:3px solid #16121e;box-shadow:0 0 12px var(--card-accent)}
-.gallery-symbol{color:var(--card-accent)!important;text-shadow:0 0 24px color-mix(in srgb,var(--card-accent),transparent 55%);filter:none}
-.gallery-enter,.gallery-launch{color:var(--card-accent,#c5adff)}
-.gallery-name{color:#fff}
-.gallery-dock{background:#17121e;border-color:#534465}
-.gallery-dock button:last-child{color:#dfff66}
-.gallery-launch{background:#271e32;color:#f5d5ff;border-color:#836ba0}
-.gallery-heading{color:#e7dcff}
-.gallery-item:hover{background:linear-gradient(155deg,#34263f,#15101b)}
-@media(max-width:600px){.gallery-track{padding-top:175px}.clothesline{top:0}.gallery-item:nth-child(n){transform:none!important}}
-.ios-calibration{border:1px solid #45444f;border-radius:13px;padding:16px;margin-top:16px}.ios-cal-inner{padding-top:18px}.ios-cal-inner label{display:flex;justify-content:space-between;font-size:14px;color:#eee}.ios-cal-inner input{width:100%;margin:18px 0;accent-color:#dfff66}.ios-presets{display:flex;gap:7px;flex-wrap:wrap}.ios-presets button{background:#25202f;color:#fff;border:1px solid #6a6076;border-radius:8px;padding:9px 13px}.ios-cal-inner p{font-size:12px;color:#c9c5cf;line-height:1.8;margin-top:16px}
-/* EDITORIAL 2026 — quiet, cinematic, image-led */
-:root{--lime:#d8d6d2;--muted:#a4a2a1;--line:#303034}
-body{background:#080809;color:#f1f0ec;font-family:"Helvetica Neue",Arial,"PingFang SC",sans-serif;letter-spacing:.005em}
-header{background:#080809e8;border-bottom:1px solid #ffffff16;height:66px}
-.brand{font-family:Georgia,"Times New Roman",serif;font-size:19px;font-weight:400;letter-spacing:.075em}
-.brand span{color:#aaa8aa;font-family:Arial,sans-serif;font-size:9px;letter-spacing:.15em}
-.nav{font-size:11px;letter-spacing:.1em;font-weight:400}
-.nav.active{background:#e6e4e1;color:#111}
-main{max-width:1440px}
-.gallery-home{background:radial-gradient(ellipse at 82% 83%,#22222a 0%,transparent 44%),radial-gradient(ellipse at 8% 63%,#201b26 0%,transparent 37%),#080809!important;min-height:calc(100svh - 66px);overflow:hidden}
-.gallery-heading{display:flex;align-items:flex-end;justify-content:space-between;padding:clamp(44px,7vh,92px) clamp(12px,4vw,52px) 0!important;border:0!important}
-.gallery-intro{display:flex;flex-direction:column;gap:15px}
-.gallery-kicker{font:10px Arial,sans-serif;letter-spacing:.26em;color:#8c8a91}
-.gallery-intro strong{font-family:Didot,"Bodoni MT","Times New Roman",serif;font-weight:400;letter-spacing:-.065em;font-size:clamp(58px,10vw,138px);line-height:.86;color:#e9e6e4}
-.gallery-intro small{font-family:"Songti SC","Noto Serif SC",serif;font-size:clamp(13px,1.4vw,17px);letter-spacing:.3em;color:#b9b6b5}
-#slideCount{font:12px Georgia,serif;color:#a9a5a6;letter-spacing:.16em;padding-bottom:5px}
-.gallery-scene{background:transparent!important}
-.gallery-track{padding-top:185px!important;padding-bottom:40px}
-.clothesline path{stroke:#b7a9a0!important;stroke-width:1.5!important;filter:none!important}
-.gallery-item{border:1px solid #ffffff35!important;border-radius:12px!important;background:linear-gradient(155deg,#292b33,#111216 78%)!important;box-shadow:0 25px 60px #0009!important;overflow:visible}
-.gallery-item:nth-child(4n+2){background:linear-gradient(145deg,#3b333c,#121217 75%)!important}
-.gallery-item:nth-child(4n+3){background:linear-gradient(145deg,#28363d,#111317 75%)!important}
-.gallery-item:nth-child(4n){background:linear-gradient(145deg,#3d3835,#151316 75%)!important}
-.gallery-item:after{border:1.5px solid #c5bdb8!important;background:#171719!important;box-shadow:none!important;width:12px;height:12px}
-.gallery-hanger{width:1px!important;background:#aaa3a0!important}
-.gallery-hanger:after{background:#bcb5b2!important;box-shadow:none!important}
-.gallery-symbol{font-family:Didot,Georgia,serif!important;color:#ece8e8!important;text-shadow:none!important;font-weight:400!important;filter:none!important;opacity:.92}
-.gallery-item:nth-child(1) .gallery-symbol{background:repeating-linear-gradient(90deg,#e8e4df 0 3px,#23252b 3px 7px);background-clip:text;-webkit-background-clip:text;color:transparent!important;font-size:clamp(85px,11vw,150px)!important}
-.gallery-item:nth-child(3) .gallery-symbol{color:#afc1d2!important}
-.gallery-item:nth-child(5) .gallery-symbol{color:#b4b1c6!important}
-.gallery-item:nth-child(9) .gallery-symbol{color:#c5b5aa!important}
-.gallery-number{font-family:Georgia,serif!important;color:#b4b0b1!important}
-.gallery-name{font-family:"Songti SC","Noto Serif SC",serif!important;font-weight:400!important;letter-spacing:.07em!important;color:#eee9e8!important}
-.gallery-enter{color:#e5e1df!important;text-shadow:none!important}
-.gallery-dock{background:#141417!important;border:1px solid #454348!important}
-.gallery-dock button,.gallery-dock button:last-child{color:#eee!important}
-.gallery-launch{background:#e4e2df!important;color:#141416!important;border-color:#e4e2df!important}
-.gallery-swipe{color:#88858b!important;letter-spacing:.22em}
-.work .back{font-size:12px;letter-spacing:.06em;color:#bcb8b8}
-.preview-shell{background:radial-gradient(ellipse at 70% 20%,#24242a,#101012 70%)!important;border:1px solid #2c2c30!important;border-radius:16px!important}
-.stage{border-radius:7px;box-shadow:0 30px 70px #000a}
-.stage .drag-card{border:1px solid #d4d0c8;box-shadow:0 18px 40px #0008}
-.panel{color:#f0eeeb!important}
-.panel h3{font-family:"Songti SC","Noto Serif SC",serif;font-size:clamp(29px,3vw,42px)!important;font-weight:400!important;letter-spacing:.04em!important}
-.panel .field label{font-weight:400;color:#c6c3c2}
-.panel .file{border:1px solid #45454b;background:#19191c;color:#e8e5e2;border-radius:7px}
-.btn{border-radius:100px!important;font-weight:400!important;letter-spacing:.04em}
-.btn.lime{background:#e6e3df!important;color:#111!important;border-color:#e6e3df!important}
-.btn.alt{background:#151517!important;border:1px solid #67636a!important;color:#ece9e6!important}
-.field input[type=range],.ios-cal-inner input{accent-color:#dedad6!important}
-.export-grid button:first-child{background:#dedad6;color:#111;border-color:#dedad6}
-.foot{border-color:#ffffff17;font-size:10px;letter-spacing:.18em}
-@media(max-width:600px){
-header{height:58px}
-.gallery-home{min-height:calc(100svh - 58px)}
-.gallery-heading{padding:55px 14px 0!important}
-.gallery-intro{gap:13px}
-.gallery-intro strong{font-size:clamp(49px,13vw,76px)}
-.gallery-intro small{font-size:12px;letter-spacing:.2em}
-.gallery-kicker{font-size:8px;letter-spacing:.18em}
-.gallery-track{padding-top:175px!important}
-.gallery-item:nth-child(1) .gallery-symbol{font-size:100px!important}
-.panel{padding:12px 2px!important}
-}
-
-/* REFERENCE-LED MOBILE ART DIRECTION */
-.gallery-home{background:radial-gradient(ellipse at 120% 65%,#24212d 0%,transparent 47%),radial-gradient(ellipse at -20% 70%,#252332 0%,transparent 46%),#050506!important}
-.gallery-heading{padding-top:clamp(55px,9vh,115px)!important}
-.gallery-intro strong{font-family:"Songti SC","Noto Serif SC",serif;font-weight:400;font-size:clamp(32px,5.8vw,79px);line-height:1.34;letter-spacing:.02em}
-.gallery-intro small{font-family:Georgia,serif;font-size:clamp(10px,1.15vw,13px);letter-spacing:.28em;line-height:2.1;color:#96939c}
-.gallery-kicker{letter-spacing:.3em}
-.gallery-track{align-items:flex-start!important;padding-top:180px!important;padding-bottom:30px!important}
-.gallery-item{flex-basis:clamp(225px,25vw,315px)!important;height:clamp(340px,34vw,425px)!important;justify-content:flex-end!important;padding:0 0 32px!important;transform:rotate(-4deg)!important;transition:transform .4s ease,box-shadow .4s ease!important;overflow:visible!important;backdrop-filter:blur(18px)}
-.gallery-item:nth-child(2n){transform:rotate(5deg) translateY(30px)!important}
-.gallery-item:nth-child(3n){transform:rotate(-2deg) translateY(-12px)!important}
-.gallery-item:hover{transform:rotate(0) translateY(-9px)!important}
-.gallery-number{top:auto!important;bottom:90px!important;left:22px!important;font-size:15px!important}
-.gallery-name{margin:0!important;align-self:flex-start;padding-left:20px;font-size:26px!important}
-.gallery-enter{bottom:30px!important}
-.gallery-art{position:absolute;inset:15px 13px 123px;border-radius:7px;overflow:hidden;display:grid;place-items:center;background:radial-gradient(circle at 22% 18%,#8b8ca050,transparent 45%),linear-gradient(155deg,#262b38,#0b0c10 78%);box-shadow:inset 0 0 0 1px #ffffff1b}
-.gallery-art-core{font-family:Georgia,serif;font-size:112px;font-weight:400;line-height:1;color:#e7e5e8;text-shadow:0 12px 30px #0008}
-.gallery-art-0{background:radial-gradient(ellipse at 15% 18%,#7281a5aa,transparent 55%),linear-gradient(145deg,#24212c,#0b0b10)}
-.gallery-art-0:after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0 4px,#090a0bcf 4px 8px);pointer-events:none}
-.gallery-art-0 .gallery-art-core{font-size:130px}
-.gallery-art-1{background:radial-gradient(circle at 70% 40%,#b1a5a9,#393139 42%,#131218 75%)}
-.gallery-art-1 .gallery-art-core{font-size:125px;transform:rotate(-20deg)}
-.gallery-art-2{background:radial-gradient(circle at 50% 48%,#a6b4cf,#293b52 30%,#0b111d 65%)}
-.gallery-art-2 .gallery-art-core{font-size:160px;color:#c2d2e9}
-.gallery-art-3{background:linear-gradient(145deg,#a7a09d,#55484a 45%,#1c171c)}
-.gallery-art-3 .gallery-art-core{font-style:italic}
-.gallery-art-4{background:radial-gradient(ellipse at 50% 30%,#d7bfd0,#55576b 38%,#14161d 72%)}
-.gallery-art-5{background:radial-gradient(circle at 50% 50%,#bd9685,#353944 44%,#0b0d13 72%)}
-.gallery-art-6{background:linear-gradient(135deg,#5a5c71,#161923 68%)}
-.gallery-art-7{background:radial-gradient(circle at 50% 50%,#6c8299,#1a202d 55%,#080b10)}
-.gallery-art-8{background:linear-gradient(125deg,#a8a09c,#49414a 55%,#15141a)}
-.gallery-art-9{background:linear-gradient(140deg,#8593a8,#28334b 40%,#090b13)}
-.gallery-art-10{background:radial-gradient(circle at 40% 40%,#b6a1c7,#42556a 55%,#14111b)}
-.gallery-item{background:linear-gradient(150deg,#282935d9,#111117ef)!important;border:1px solid #8b87934d!important}
-.gallery-item:nth-child(n){box-shadow:0 20px 45px #0009!important}
-.gallery-hanger{background:#a6a0a0!important}
-.gallery-bottom{border-top:1px solid #ffffff18}
-.gallery-dock{border:0!important;background:transparent!important}
-.gallery-dock button{font-size:24px}
-.gallery-launch{background:#ece9e6!important;color:#141316!important}
-@media(max-width:600px){
-.gallery-heading{padding-top:45px!important;padding-left:18px!important;padding-right:18px!important}
-.gallery-intro strong{font-size:clamp(32px,8.6vw,48px);line-height:1.43}
-.gallery-intro small{font-size:10px;line-height:1.85}
-.gallery-kicker{font-size:8px}
-.gallery-track{padding-top:155px!important}
-.gallery-item{flex-basis:clamp(225px,68vw,285px)!important;height:clamp(315px,94vw,375px)!important}
-.gallery-art{bottom:109px}
-.gallery-number{bottom:77px!important}
-.gallery-name{font-size:23px!important}
-.gallery-home{min-height:calc(100svh - 58px)}
-.gallery-bottom{height:94px}
-}
-</style></head><body><header><div class="brand">PLAY<span> / 创意游乐场</span></div><nav><button class="nav active" id="navPlay">探索</button><button class="nav" id="navCreate">创作</button><button class="nav" id="navShare">分享</button></nav></header><main><div id="home" class="gallery-home"><div class="gallery-heading"><div class="gallery-intro"><span class="gallery-kicker">A CREATIVE IMAGE PLAYGROUND</span><strong>把普通的图片<br>变成会动的魔法。</strong><small>TURN ORDINARY PHOTOS<br>INTO MOVING MAGIC.</small></div><span id="slideCount">01 / 11</span></div><div class="gallery-scene"><div class="gallery-track" id="cards" aria-label="左右滑动选择玩法"><svg id="clothesline" class="clothesline" aria-hidden="true"><path id="clotheslinePath"></path></svg></div></div><div class="gallery-bottom"><div class="gallery-dock"><button id="dockPrev" aria-label="上一个">←</button><span class="dock-rule"></span><button id="dockNext" aria-label="下一个">→</button><span class="dock-rule"></span><button id="dockFirst" aria-label="第一个玩法">✳&#xfe0e;</button></div><span class="gallery-swipe">SWIPE TO EXPLORE</span><button class="gallery-launch" id="dockOpen" aria-label="进入当前玩法">↗&#xfe0e;</button></div></div><section class="work" id="work"><button class="back" id="back">← 返回创意游乐场</button><div class="editor"><div class="preview-shell"><div class="stage" id="stage"><canvas id="canvas" width="600" height="750"></canvas><div class="overlay" id="overlay"></div><div class="hint" id="hint"></div></div></div><aside class="panel"><div class="eyebrow hidden" id="modeNum">PLAY / 01</div><h3 id="modeTitle"></h3><p id="modeDesc" class="hidden"></p><div id="controls"></div><div class="actions" id="actions"></div><details class="advanced"><summary>使用说明</summary><p class="note small" id="modeNote"></p></details></aside></div></section><footer class="foot">PLAYGROUND © 2026</footer></main>
-<script>
-(()=>{'use strict';const $=id=>document.getElementById(id),canvas=$('canvas'),ctx=canvas.getContext('2d'),stage=$('stage'),overlay=$('overlay'),hint=$('hint');let mode=0,imgs=[],pos=0,run=false,raf=0,settings={stripe:4,phase:0},textValue='不止眼前',story=0;const modes=[['光栅动画','把隐藏动画发到朋友圈','SCAN / REVEAL','▥','上传 2–8 张照片，生成光栅底图与透明卡。实体卡可直接扫描，iPhone 跨 App 拖动仍需真机校准。'],['刮刮乐','刮开另一面的惊喜','SCRATCH / DISCOVER','✦','上传照片或使用示例，手指擦掉表面涂层，揭开隐藏的画面。'],['倾斜幻象','手机一倾斜，世界就变了','TILT / SWITCH','◒','倾斜手机或左右拖动，切换两种画面。iPhone 可能需要授权运动传感器。'],['动态文字','让一句话活过来','TYPE / PLAY','Aa','输入文字，拖动手指制造波浪和动态字形。'],['液态照片','触摸照片产生玻璃折射','TOUCH / LIQUID','≈','拖动照片产生流动折射和回弹效果。'],['照片故事','把瞬间变成互动故事','SWIPE / STORY','▤','上传多张照片，左右滑动翻阅；也可保存当前故事卡片。'],['视角密码','拖动还原隐藏文字','PERSPECTIVE','◇','调整视角还原文字'],['裸眼 3D','隐藏的立体形状','STEREOGRAM','◎','平行视线观看隐藏图案'],['折叠密码','拼合隐藏信息','FOLD','⌁','滑动拼合文字'],['无限照片','探索层层画面','INFINITE','▣','点击深入画面'],['颜色解密','用颜色寻找秘密','COLOR','◉','切换颜色滤镜']];function button(label,fn,kind=''){let b=document.createElement('button');b.className='btn '+kind;b.textContent=label;b.onclick=fn;$('actions').appendChild(b)}function field(label,value,min,max,fn){let d=document.createElement('div');d.className='field';d.innerHTML='<label>'+label+' <span>'+value+'</span></label><input type="range" min="'+min+'" max="'+max+'" value="'+value+'">';let i=d.querySelector('input'),v=d.querySelector('span');i.oninput=()=>{v.textContent=i.value;fn(+i.value)};$('controls').appendChild(d)}function fileInput(multiple=false){let l=document.createElement('label');l.className='file';l.textContent=multiple?'＋ 上传多张照片（2–8 张）':'＋ 上传一张自己的照片';let i=document.createElement('input');i.type='file';i.accept='image/*';i.multiple=multiple;l.appendChild(i);$('controls').appendChild(l);i.onchange=async()=>{let fs=[...i.files].slice(0,multiple?8:1);if(!fs.length)return;try{let arr=await Promise.all(fs.map(f=>new Promise((ok,bad)=>{let im=new Image(),url=URL.createObjectURL(f);im.onload=()=>{URL.revokeObjectURL(url);ok(im)};im.onerror=bad;im.src=url})));imgs=arr;story=0;render();if(mode===1)resetScratch()}catch(e){alert('图片加载失败，请换一张试试')}}}function base(c=ctx,w=600,h=750,variant=0){c.clearRect(0,0,w,h);let g=c.createLinearGradient(0,0,w,h);let colors=[['#a9e2e7','#a5b0f4'],['#ffc4b6','#ffecaf'],['#d8ff75','#70cab4'],['#e4c4ff','#a1d7fa']][variant%4];g.addColorStop(0,colors[0]);g.addColorStop(1,colors[1]);c.fillStyle=g;c.fillRect(0,0,w,h);c.save();c.translate(w*.5,h*.46);c.rotate((variant%3-1)*.16);c.fillStyle='#1e3136';c.beginPath();c.arc(0,0,w*.29,0,Math.PI*2);c.fill();c.fillStyle=colors[0];c.beginPath();c.arc(-w*.09,-h*.05,w*.055,0,7);c.arc(w*.09,-h*.05,w*.055,0,7);c.fill();c.strokeStyle=colors[0];c.lineWidth=w*.023;c.lineCap='round';c.beginPath();c.arc(0,h*.025,w*.12,.08,Math.PI-.08);c.stroke();c.restore();c.fillStyle='#192629';c.font='bold '+Math.round(w*.04)+'px sans-serif';c.fillText(['HELLO, WORLD','ANOTHER SIDE','LOOK CLOSER','MAKE IT PLAY'][variant%4],w*.09,h*.88)}function drawPhoto(c,im,w,h){c.fillStyle='#f0f0ed';c.fillRect(0,0,w,h);let iw=im.naturalWidth||im.width,ih=im.naturalHeight||im.height,s=Math.max(w/iw,h/ih);c.drawImage(im,(w-iw*s)/2,(h-ih*s)/2,iw*s,ih*s)}function scene(c,w,h,i){if(imgs.length)drawPhoto(c,imgs[i%imgs.length],w,h);else base(c,w,h,i)}function canvasFor(w=600,h=750){let c=document.createElement('canvas');c.width=w;c.height=h;return c}function composite(w=600,h=750){let c=canvasFor(w,h),o=c.getContext('2d'),n=imgs.length||4,p=settings.stripe*(w/600),vertical=true;let data=o.createImageData(w,h),sources=[];for(let i=0;i<n;i++){let t=canvasFor(w,h),tc=t.getContext('2d');scene(tc,w,h,i);sources.push(tc.getImageData(0,0,w,h).data)}for(let x=0;x<w;x++){let frame=Math.floor(x/p)%n;for(let y=0;y<h;y++){let k=(y*w+x)*4,s=sources[frame];data.data[k]=s[k];data.data[k+1]=s[k+1];data.data[k+2]=s[k+2];data.data[k+3]=255}}o.putImageData(data,0,0);return c}function drawScanimation(){let c=composite();ctx.drawImage(c,0,0);overlay.innerHTML='';let card=document.createElement('div');card.className='drag-card';let pitch=settings.stripe*(imgs.length||4)/600*stage.clientWidth,slit=settings.stripe/600*stage.clientWidth;card.style.background='repeating-linear-gradient(90deg,transparent 0px,transparent '+slit+'px,#0b1416 '+slit+'px,#0b1416 '+pitch+'px)';overlay.appendChild(card);let down=null;card.addEventListener('pointerdown',e=>{down={x:e.clientX,y:e.clientY,left:card.offsetLeft,top:card.offsetTop};card.setPointerCapture(e.pointerId);e.preventDefault()});card.addEventListener('pointermove',e=>{if(!down)return;card.style.left=down.left+e.clientX-down.x+'px';card.style.top=down.top+e.clientY-down.y+'px'});card.addEventListener('pointerup',()=>down=null);card.addEventListener('pointercancel',()=>down=null);hint.textContent='拖动光栅卡'}function download(c,name){c.toBlob(b=>{if(!b)return;let a=document.createElement('a'),u=URL.createObjectURL(b);a.href=u;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(u),5000)},'image/png')}let iosCardScale=100;function downloadCard(){let w=600,h=750,n=imgs.length||4,scale=iosCardScale/100,slit=settings.stripe/scale,p=slit*n,c=canvasFor(w,h),x=c.getContext('2d');x.fillStyle='#0b1416';for(let col=slit;col<w;col+=p)x.fillRect(col,0,p-slit,h);download(c,'PLAY-相册拖动光栅卡-'+iosCardScale+'%.png')}function saveCurrent(){let c=canvasFor();c.getContext('2d').drawImage(canvas,0,0);download(c,'PLAY-'+['光栅底图','刮刮乐','倾斜幻象','动态文字','液态照片','照片故事'][mode]+'.png')}function resetScratch(){let top=canvasFor(),c=top.getContext('2d');c.fillStyle='#252c2b';c.fillRect(0,0,600,750);c.fillStyle='#d8ff5c';c.textAlign='center';c.font='bold 56px sans-serif';c.fillText('SCRATCH ME',300,370);c.font='24px sans-serif';c.fillText('刮开看看下面有什么 ↗',300,420);let o=canvasFor(),oc=o.getContext('2d');scene(oc,600,750,imgs.length?0:1);ctx.drawImage(o,0,0);let mask=document.createElement('canvas');mask.width=600;mask.height=750;mask.style.cssText='position:absolute;inset:0;width:100%;height:100%;touch-action:none';overlay.replaceChildren(mask);let mc=mask.getContext('2d');mc.drawImage(top,0,0);let active=false;function erase(e){let r=mask.getBoundingClientRect(),x=(e.clientX-r.left)*600/r.width,y=(e.clientY-r.top)*750/r.height;mc.globalCompositeOperation='destination-out';mc.beginPath();mc.arc(x,y,43,0,7);mc.fill()}mask.onpointerdown=e=>{active=true;mask.setPointerCapture(e.pointerId);erase(e)};mask.onpointermove=e=>{if(active)erase(e)};mask.onpointerup=()=>active=false;mask.onpointercancel=()=>active=false;hint.textContent='刮开'}function drawTilt(t){let a=canvasFor(),b=canvasFor();scene(a.getContext('2d'),600,750,0);scene(b.getContext('2d'),600,750,imgs.length>1?1:2);ctx.drawImage(a,0,0);ctx.globalAlpha=t;ctx.drawImage(b,0,0);ctx.globalAlpha=1}let tiltValue=0;function tiltMove(e){let r=stage.getBoundingClientRect();tiltValue=Math.max(0,Math.min(1,(e.clientX-r.left)/r.width));drawTilt(tiltValue)}let sensor=null;async function sensorEnable(){if(typeof DeviceOrientationEvent==='undefined'){alert('此设备不支持方向感应');return}try{if(typeof DeviceOrientationEvent.requestPermission==='function'){let r=await DeviceOrientationEvent.requestPermission();if(r!=='granted')return}if(sensor)window.removeEventListener('deviceorientation',sensor);sensor=e=>{if(mode!==2)return;let g=e.gamma||0;tiltValue=Math.max(0,Math.min(1,(g+35)/70));drawTilt(tiltValue)};window.addEventListener('deviceorientation',sensor)}catch(e){alert('无法启用方向感应，请使用手指拖动')}}function drawType(t=0){ctx.fillStyle='#202b2a';ctx.fillRect(0,0,600,750);let chars=[...textValue].slice(0,16),sz=Math.min(72,Math.floor(520/Math.max(1,chars.length)*1.5));ctx.font='900 '+sz+'px sans-serif';ctx.textAlign='center';let widths=chars.map(ch=>ctx.measureText(ch).width+3),total=widths.reduce((a,b)=>a+b,0),x=300-total/2;chars.forEach((ch,i)=>{let off=Math.sin(i*.9+t)*42;ctx.fillStyle=i%2?'#d8ff5c':'#fff';ctx.fillText(ch,x+widths[i]/2,385+off);x+=widths[i]});ctx.font='15px sans-serif';ctx.fillStyle='#b9d2cb';ctx.fillText('MOVE YOUR FINGER ↔',300,660)}let liquidSource=null,liquidPulses=[],liquidRunning=false,liquidTime=0,liquidStrength=22;function prepareLiquid(){let s=canvasFor();scene(s.getContext('2d'),600,750,0);liquidSource=s;liquidPulses=[];liquidTime=0}function liquidTouch(x,y,dx=0,dy=0){liquidPulses.push({x,y,dx,dy,age:0});if(liquidPulses.length>9)liquidPulses.shift()}function drawLiquid(){if(!liquidSource)prepareLiquid();ctx.clearRect(0,0,600,750);ctx.drawImage(liquidSource,0,0);const slice=5;for(let p of liquidPulses){let decay=Math.pow(1-p.age/56,2),radius=42+p.age*3.5;if(decay<=0)continue;let x0=Math.max(0,Math.floor((p.x-radius-30)/slice)*slice),x1=Math.min(600,p.x+radius+30);for(let x=x0;x<x1;x+=slice){let distance=Math.abs(x-p.x);if(distance>radius+25)continue;let wave=Math.sin(distance*.057-p.age*.26)*Math.exp(-Math.pow(distance/(radius*.85),2))*liquidStrength*decay;let drift=p.dx*decay*.65;let sourceX=Math.max(0,Math.min(600-slice,x+wave+drift));let y0=Math.max(0,Math.floor(p.y-radius)),y1=Math.min(750,Math.ceil(p.y+radius));if(y1<=y0)continue;let yy=p.y+(y0-p.y)*.84,hh=(y1-y0)*.84;ctx.drawImage(liquidSource,sourceX,Math.max(0,yy),slice,Math.min(hh,750-Math.max(0,yy)),x,y0,slice,y1-y0)}}}function animateLiquid(){if(mode!==4){liquidRunning=false;return}liquidPulses=liquidPulses.filter(p=>p.age<56);for(let p of liquidPulses)p.age+=1;drawLiquid();if(liquidPulses.length){raf=requestAnimationFrame(animateLiquid)}else liquidRunning=false}function wakeLiquid(){if(!liquidRunning){liquidRunning=true;raf=requestAnimationFrame(animateLiquid)}}function drawStory(){scene(ctx,600,750,story);ctx.fillStyle='#1d2929b8';ctx.fillRect(0,0,600,70);ctx.fillStyle='white';ctx.font='bold 22px sans-serif';ctx.fillText('MY LITTLE STORY',25,44);ctx.fillStyle='#1d2929b8';ctx.fillRect(0,670,600,80);ctx.fillStyle='white';ctx.font='17px sans-serif';ctx.fillText('← SWIPE TO EXPLORE →',30,718);ctx.textAlign='right';ctx.fillText((story+1)+' / '+(imgs.length||4),570,718);ctx.textAlign='left'}function clear(){cancelAnimationFrame(raf);run=false;overlay.innerHTML='';overlay.onpointerdown=null;overlay.onpointermove=null;overlay.onpointerup=null;stage.onpointerdown=null;stage.onpointermove=null;stage.onpointerup=null;hint.textContent='';if(sensor){window.removeEventListener('deviceorientation',sensor);sensor=null}}
-let secretText='SECRET',secretPos=0,zoomDepth=0,filterMode=0;
-function secretInput(){let d=document.createElement('div');d.className='field';d.innerHTML='<label>隐藏文字</label><input type="text" maxlength="12">';let i=d.querySelector('input');i.value=secretText;i.oninput=()=>{secretText=i.value||'SECRET';render()};$('controls').appendChild(d)}
-function artText(s,x,y,size=70,color='#fff'){ctx.fillStyle=color;ctx.font='bold '+size+'px "Songti SC",Georgia,serif';ctx.textAlign='center';ctx.fillText(s,x,y,520);ctx.textAlign='left'}
-function drawSecret(){ctx.fillStyle='#101013';ctx.fillRect(0,0,600,750);ctx.save();ctx.translate(300,365);ctx.transform(1,.08,(1-secretPos)*1.7,.12+secretPos*.88,0,0);artText(secretText,0,0,75,'#f4f4f0');ctx.restore();artText('PERSPECTIVE',300,675,18,'#dfff66')}
-function drawStereo(){let w=600,h=750,p=80,c=ctx.createImageData(w,h),seed=8;function rand(){seed=(seed*1664525+1013904223)>>>0;return seed/4294967296}for(let y=0;y<h;y++){let row=[];for(let x=0;x<w;x++){let cx=x-300,cy=y-370,inside=cx*cx/21000+cy*cy/17000<1,offset=inside?12:0;let v=x<p?(rand()>.5?230:35):row[Math.max(0,x-p+offset)];row.push(v);let k=(y*w+x)*4;c.data[k]=c.data[k+1]=c.data[k+2]=v;c.data[k+3]=255}}ctx.putImageData(c,0,0);ctx.fillStyle='#dfff66';ctx.beginPath();ctx.arc(260,65,5,0,7);ctx.arc(340,65,5,0,7);ctx.fill()}
-function drawFold(){ctx.fillStyle='#101010';ctx.fillRect(0,0,600,750);let chars=[...secretText],m=Math.ceil(chars.length/2),dx=(1-secretPos)*160;artText(chars.slice(0,m).join(''),225-dx,370,65,'#fff');artText(chars.slice(m).join(''),370+dx,370,65,'#dfff66');ctx.setLineDash([8,8]);ctx.strokeStyle='#888';ctx.beginPath();ctx.moveTo(300,90);ctx.lineTo(300,640);ctx.stroke();ctx.setLineDash([])}
-function drawInfinite(){ctx.fillStyle='#050505';ctx.fillRect(0,0,600,750);for(let j=0;j<6;j++){let scale=Math.pow(.66,j),w=510*scale,hh=620*scale,x=300-w/2,y=370-hh/2,c=canvasFor();scene(c.getContext('2d'),600,750,(zoomDepth+j)%(imgs.length||4));ctx.fillStyle='#fff';ctx.fillRect(x-3,y-3,w+6,hh+6);ctx.drawImage(c,x,y,w,hh)}}
-function drawColors(){ctx.fillStyle='#101018';ctx.fillRect(0,0,600,750);ctx.save();ctx.globalCompositeOperation='screen';artText(secretText,285,380,72,'#ff3131');artText(secretText,317,380,72,'#1de8f1');ctx.restore();if(filterMode){ctx.fillStyle=filterMode===1?'#ff0000b8':'#00eaffb8';ctx.fillRect(0,0,600,750)}}
-function render(){clear();if(mode===0){drawScanimation();return}if(mode===1){resetScratch();return}if(mode===2){drawTilt(tiltValue);let active=false;overlay.onpointerdown=e=>{active=true;overlay.setPointerCapture(e.pointerId);tiltMove(e)};overlay.onpointermove=e=>{if(active)tiltMove(e)};overlay.onpointerup=()=>active=false;hint.textContent='左右滑动';return}if(mode===3){let t=0;drawType(t);overlay.onpointermove=e=>{let r=stage.getBoundingClientRect();t=(e.clientX-r.left)/r.width*9;drawType(t)};hint.textContent='滑动';return}if(mode===4){prepareLiquid();drawLiquid();let active=false,last=null;const touch=e=>{let r=stage.getBoundingClientRect(),x=(e.clientX-r.left)/r.width*600,y=(e.clientY-r.top)/r.height*750;liquidTouch(x,y,last?x-last.x:0,last?y-last.y:0);last={x,y};wakeLiquid()};overlay.onpointerdown=e=>{active=true;last=null;overlay.setPointerCapture(e.pointerId);touch(e)};overlay.onpointermove=e=>{if(active)touch(e)};overlay.onpointerup=()=>{active=false;last=null};overlay.onpointercancel=()=>{active=false;last=null};hint.textContent='触摸拖动';return}if(mode===5){drawStory();let x=null;overlay.onpointerdown=e=>{x=e.clientX;overlay.setPointerCapture(e.pointerId)};overlay.onpointerup=e=>{if(x===null)return;let d=e.clientX-x;if(Math.abs(d)>25){story=(story+(d<0?1:-1)+(imgs.length||4))%(imgs.length||4);drawStory()}x=null};hint.textContent='滑动翻页';return}if(mode===6||mode===8){let draw=mode===6?drawSecret:drawFold;draw();let move=e=>{let rect=stage.getBoundingClientRect();secretPos=Math.max(0,Math.min(1,(e.clientX-rect.left)/rect.width));draw()};overlay.onpointerdown=e=>{overlay.setPointerCapture(e.pointerId);move(e)};overlay.onpointermove=e=>{if(e.pressure||e.buttons)move(e)};hint.textContent='左右滑动';return}if(mode===7){drawStereo();hint.textContent='平行视线观察';return}if(mode===9){drawInfinite();overlay.onpointerdown=()=>{zoomDepth++;drawInfinite()};hint.textContent='点击深入';return}if(mode===10){drawColors();overlay.onpointerdown=()=>{filterMode=(filterMode+1)%3;drawColors()};hint.textContent='点击切换滤镜';return}}
-/* Local animated exports */
-let exportBusy=false;
-function exportStatus(s){let e=document.getElementById('exportStatus');if(e)e.textContent=s}
-function exportFrames(count=24){let frames=[],w=360,hh=450,c=document.createElement('canvas');c.width=w;c.height=hh;let g=c.getContext('2d',{willReadFrequently:true});for(let i=0;i<count;i++){let t=i/count;let source=canvasFor();let sc=source.getContext('2d');if(mode===0){let b=composite();sc.drawImage(b,0,0);let n=imgs.length||4,p=settings.stripe*n;sc.fillStyle='#091013';for(let x=0;x<600+p;x+=p)sc.fillRect(x+settings.stripe+t*p,0,p-settings.stripe,750)}else if(mode===3){drawType(t*Math.PI*2);sc.drawImage(canvas,0,0)}else if(mode===4){prepareLiquid();liquidTouch(300+150*Math.cos(t*Math.PI*2),375+150*Math.sin(t*Math.PI*2));liquidPulses[0].age=Math.floor(t*50);drawLiquid();sc.drawImage(canvas,0,0)}else if(mode===2){drawTilt((1-Math.cos(t*Math.PI*2))/2);sc.drawImage(canvas,0,0)}else if(mode===5){scene(sc,600,750,Math.floor(t*(imgs.length||4)))}else if(mode===6){secretPos=(1-Math.cos(t*Math.PI*2))/2;drawSecret();sc.drawImage(canvas,0,0)}else if(mode===8){secretPos=(1-Math.cos(t*Math.PI*2))/2;drawFold();sc.drawImage(canvas,0,0)}else if(mode===9){let prev=zoomDepth;zoomDepth=prev+Math.floor(t*5);drawInfinite();sc.drawImage(canvas,0,0);zoomDepth=prev}else if(mode===10){filterMode=Math.floor(t*3);drawColors();sc.drawImage(canvas,0,0)}else if(mode===1){scene(sc,600,750,0);sc.fillStyle='#161616';sc.fillRect(0,0,600*(1-t),750)}else{sc.drawImage(canvas,0,0)}g.drawImage(source,0,0,w,hh);frames.push(g.getImageData(0,0,w,hh).data.slice())}render();return{frames,w,h:hh}}
-function gifPalette(){let a=[];for(let i=0;i<256;i++)a.push(((i>>5)&7)*255/7|0,((i>>2)&7)*255/7|0,(i&3)*85);return a}
-function gifIndex(rgba){let a=new Uint8Array(rgba.length/4);for(let i=0,j=0;i<rgba.length;i+=4,j++)a[j]=(rgba[i]&224)|((rgba[i+1]&224)>>3)|(rgba[i+2]>>6);return a}
-function gifLZW(pixels){const clear=256,end=257;let dict=new Map(),next=258,bits=9,bitBuf=0,bitCount=0,out=[];const emit=v=>{bitBuf|=v<<bitCount;bitCount+=bits;while(bitCount>=8){out.push(bitBuf&255);bitBuf>>=8;bitCount-=8}};emit(clear);let prev=String(pixels[0]);for(let i=1;i<pixels.length;i++){let k=pixels[i],key=prev+','+k;if(dict.has(key)){prev=key;continue}emit(prev.includes(',')?dict.get(prev):Number(prev));if(next<4096){dict.set(key,next++);if(next===(1<<bits)&&bits<12)bits++}else{emit(clear);dict.clear();next=258;bits=9}prev=String(k)}emit(prev.includes(',')?dict.get(prev):Number(prev));emit(end);if(bitCount)out.push(bitBuf&255);return out}
-function gifEncode(frames,w,h){let bytes=[],put=(...v)=>bytes.push(...v),word=v=>put(v&255,(v>>8)&255),ascii=s=>{for(let c of s)put(c.charCodeAt(0))};ascii('GIF89a');word(w);word(h);put(0xf7,0,0);put(...gifPalette());put(0x21,0xff,11);ascii('NETSCAPE2.0');put(3,1,0,0,0);for(let f of frames){put(0x21,0xf9,4,0,8,0,0,0);put(0x2c);word(0);word(0);word(w);word(h);put(0,8);let compressed=gifLZW(gifIndex(f));for(let i=0;i<compressed.length;i+=255){let b=compressed.slice(i,i+255);put(b.length,...b)}put(0)}put(0x3b);return new Blob([new Uint8Array(bytes)],{type:'image/gif'})}
-function saveBlob(b,name){let a=document.createElement('a'),u=URL.createObjectURL(b);a.href=u;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),15000)}
-async function exportGif(){if(exportBusy)return;exportBusy=true;exportStatus('正在生成 GIF');try{await new Promise(r=>setTimeout(r,30));let f=exportFrames(20);let b=gifEncode(f.frames,f.w,f.h);saveBlob(b,'PLAY-'+modes[mode][0]+'.gif');exportStatus('GIF 已生成')}catch(e){exportStatus('生成失败 请重试');console.error(e)}finally{exportBusy=false}}
-async function exportVideo(){if(exportBusy)return;exportBusy=true;exportStatus('正在生成视频');try{if(!window.MediaRecorder||!HTMLCanvasElement.prototype.captureStream)throw Error('当前浏览器不支持直接录制');let type=['video/mp4;codecs=avc1.42E01E','video/mp4','video/webm;codecs=vp9','video/webm'].find(t=>MediaRecorder.isTypeSupported(t));if(!type)throw Error('当前浏览器不支持视频编码');let f=exportFrames(30),c=document.createElement('canvas');c.width=f.w;c.height=f.h;let g=c.getContext('2d'),stream=c.captureStream(12),track=stream.getVideoTracks()[0],chunks=[],rec=new MediaRecorder(stream,{mimeType:type});rec.ondataavailable=e=>{if(e.data.size)chunks.push(e.data)};let done=new Promise((resolve,reject)=>{rec.onstop=resolve;rec.onerror=reject});rec.start();for(let i=0;i<f.frames.length;i++){g.putImageData(new ImageData(new Uint8ClampedArray(f.frames[i]),f.w,f.h),0,0);if(track.requestFrame)track.requestFrame();await new Promise(r=>setTimeout(r,84))}rec.stop();await done;stream.getTracks().forEach(t=>t.stop());saveBlob(new Blob(chunks,{type}), 'PLAY-'+modes[mode][0]+(type.includes('mp4')?'.mp4':'.webm'));exportStatus('视频已生成')}catch(e){exportStatus(e.message||'视频导出失败')}finally{exportBusy=false}}
-function addExports(){let panel=document.createElement('details');panel.className='advanced export-panel';panel.innerHTML='<summary>导出动态作品</summary><div class="export-grid"><button type="button" id="exportGif">GIF</button><button type="button" id="exportVideo">视频</button><button type="button" id="exportLive">实况照片</button></div><p id="exportStatus" aria-live="polite"></p>';document.getElementById('controls').appendChild(panel);panel.querySelector('#exportGif').onclick=exportGif;panel.querySelector('#exportVideo').onclick=exportVideo;panel.querySelector('#exportLive').onclick=()=>exportStatus('Live Photo 需要苹果兼容的照片与视频配对和相册导入 目前网页无法直接生成可识别的实况照片 请先导出视频');}
-function select(i){document.body.classList.remove('on-home');mode=i;imgs=[];settings.stripe=4;tiltValue=0;story=0;$('home').style.display='none';$('work').classList.add('show');$('navPlay').classList.remove('active');$('navCreate').classList.add('active');$('modeNum').textContent='PLAY / '+String(i+1).padStart(2,'0');$('modeTitle').textContent=modes[i][0];$('modeDesc').textContent=modes[i][4];$('controls').innerHTML='';$('actions').innerHTML='';$('modeNote').textContent='';if(i===0){fileInput(true);let adv=document.createElement('details');adv.className='advanced';adv.innerHTML='<summary>高级设置</summary><div id="advancedFields"></div>';$('controls').appendChild(adv);let holder=$('controls'),temp=document.createElement('div');field('条纹宽度（基准像素）',4,2,12,v=>{settings.stripe=v;render()});adv.querySelector('#advancedFields').appendChild(holder.lastElementChild);button('保存光栅底图',()=>download(composite(),'PLAY-朋友圈光栅底图.png'),'lime');button('保存透明光栅卡',downloadCard,'alt');let ios=document.createElement('details');ios.className='advanced ios-calibration';ios.innerHTML='<summary>iPhone 相册拖动适配</summary><div class="ios-cal-inner"><label>悬浮预览缩放 <strong id="iosScaleLabel">100%</strong></label><input id="iosScale" type="range" min="50" max="250" step="5" value="100"><div class="ios-presets"><button type="button" data-s="75">75%</button><button type="button" data-s="100">100%</button><button type="button" data-s="125">125%</button><button type="button" data-s="150">150%</button></div><p>拖动相册里的光栅卡后 若条纹比底图更密 就调低比例 若更疏 就调高比例 再重新保存光栅卡</p></div>';$('controls').appendChild(ios);ios.querySelector('#iosScale').oninput=e=>{iosCardScale=+e.target.value;ios.querySelector('#iosScaleLabel').textContent=iosCardScale+'%'};ios.querySelectorAll('[data-s]').forEach(b=>b.onclick=()=>{iosCardScale=+b.dataset.s;ios.querySelector('#iosScale').value=iosCardScale;ios.querySelector('#iosScaleLabel').textContent=iosCardScale+'%'});$('modeNote').textContent='注意：光栅底图与透明卡需按相同缩放比例显示。微信压缩及 iOS 跨 App 拖拽预览的尺寸尚需真机校准；实体卡请按实际屏幕像素密度测试。'}else if(i===1){fileInput();button('重新覆盖',resetScratch,'alt');button('保存隐藏照片',saveCurrent,'lime')}else if(i===2){fileInput(true);button('启用手机倾斜',sensorEnable,'lime');button('保存当前画面',saveCurrent,'alt')}else if(i===3){let d=document.createElement('div');d.className='field';d.innerHTML='<label>你的文字</label><input type="text" maxlength="16" placeholder="输入一句话">';let inp=d.querySelector('input');inp.value=textValue;inp.oninput=()=>{textValue=inp.value||'PLAY';drawType()};$('controls').appendChild(d);button('保存文字海报',saveCurrent,'lime')}else if(i===4){fileInput();field('折射强度',22,8,48,v=>{liquidStrength=v});button('保存当前画面',saveCurrent,'lime')}else if(i===5){fileInput(true);button('上一张',()=>{story=(story-1+(imgs.length||4))%(imgs.length||4);drawStory()},'alt');button('下一张',()=>{story=(story+1)%(imgs.length||4);drawStory()},'alt');button('保存故事卡',saveCurrent,'lime')}else if(i===6||i===8){secretInput();button('保存图片',saveCurrent,'lime')}else if(i===7){button('保存立体图',saveCurrent,'lime')}else if(i===9){fileInput(true);button('深入一层',()=>{zoomDepth++;drawInfinite()},'alt');button('保存图片',saveCurrent,'lime')}else if(i===10){secretInput();button('切换滤镜',()=>{filterMode=(filterMode+1)%3;drawColors()},'alt');button('保存图片',saveCurrent,'lime')}addExports();render();window.scrollTo({top:0,behavior:'smooth'})}function home(){document.body.classList.add('on-home');clear();$('work').classList.remove('show');$('home').style.display='block';$('navPlay').classList.add('active');$('navCreate').classList.remove('active');window.scrollTo({top:0,behavior:'smooth'})}function drawClothesline(){let nodes=[...gallery.querySelectorAll('.gallery-item')],svg=$('clothesline'),path=$('clotheslinePath');if(!nodes.length||!svg)return;let coords=nodes.map((el,i)=>{let x=el.offsetLeft+el.offsetWidth/2,y=68+Math.sin(i*1.15)*24+Math.cos(i*.65)*18;el.style.setProperty('--rope-y',y+'px');el.style.setProperty('--hang-len',(el.offsetTop-y)+'px');return{x,y}});let width=nodes[nodes.length-1].offsetLeft+nodes[nodes.length-1].offsetWidth+gallery.clientWidth/2;svg.setAttribute('width',width);svg.setAttribute('height',170);svg.setAttribute('viewBox','0 0 '+width+' 170');let d='M 0 '+(coords[0].y+12);for(let i=0;i<coords.length;i++){let p=coords[i],prev=i?coords[i-1]:{x:0,y:p.y+12};let cx=(prev.x+p.x)/2;d+=' C '+cx+' '+(prev.y+40)+' '+cx+' '+(p.y-35)+' '+p.x+' '+p.y}d+=' C '+(width-70)+' '+(coords.at(-1).y+50)+' '+(width-20)+' 95 '+width+' 90';path.setAttribute('d',d)}let activeGallery=0;const gallery=$('cards');function focusGallery(i){activeGallery=Math.max(0,Math.min(modes.length-1,i));const node=gallery.children[activeGallery];if(node)node.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});$('slideCount').textContent=String(activeGallery+1).padStart(2,'0')+' / '+String(modes.length).padStart(2,'0')}modes.forEach((m,i)=>{let b=document.createElement('button');b.className='gallery-item';b.setAttribute('aria-label','进入'+m[0]);b.innerHTML='<span class="gallery-hanger"></span><span class="gallery-art gallery-art-'+i+'"><span class="gallery-art-core">'+m[3]+'</span></span><span class="gallery-number">'+String(i+1).padStart(2,'0')+'</span><span class="gallery-symbol">'+m[3]+'</span><span class="gallery-name">'+m[0]+'</span><span class="gallery-enter">↗&#xfe0e;</span>';b.onclick=()=>select(i);gallery.appendChild(b)});requestAnimationFrame(drawClothesline);window.addEventListener('resize',drawClothesline);let scrollTimer;gallery.addEventListener('scroll',()=>{clearTimeout(scrollTimer);scrollTimer=setTimeout(()=>{let center=gallery.scrollLeft+gallery.clientWidth/2,best=0,dist=Infinity;[...gallery.children].forEach((e,i)=>{let d=Math.abs(e.offsetLeft+e.offsetWidth/2-center);if(d<dist){dist=d;best=i}});activeGallery=best;$('slideCount').textContent=String(best+1).padStart(2,'0')+' / '+String(modes.length).padStart(2,'0')},65)},{passive:true});$('dockPrev').onclick=()=>focusGallery(activeGallery-1);$('dockNext').onclick=()=>focusGallery(activeGallery+1);$('dockFirst').onclick=()=>focusGallery(0);$('dockOpen').onclick=()=>select(activeGallery);$('back').onclick=home;$('navPlay').onclick=home;$('navCreate').onclick=()=>select(0);$('navShare').onclick=()=>{if(!$('work').classList.contains('show'))select(0);$('actions').scrollIntoView({behavior:'smooth',block:'center'});alert('在当前作品中选择导出按钮，保存图片后即可分享到朋友圈。互动链接和视频导出将在后续版本提供。')};
-document.body.classList.add('on-home');})();
-</script></body></html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#050506">
+  <meta name="description" content="PLAYGROUND 创意游乐场。上传照片，探索 11 种互动艺术实验。">
+  <title>PLAYGROUND — 创意游乐场</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script src="engine.js" defer></script>
+</head>
+<body data-page="home">
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="PLAYGROUND 首页">PLAYGROUND</a>
+    <span class="header-context" id="headerContext">创意图像实验室</span>
+    <button class="icon-button menu-toggle" id="menuToggle" aria-label="打开实验目录" aria-haspopup="dialog"><span></span><span></span></button>
+  </header>
+  <main>
+    <section id="home" class="gallery-home" aria-label="创意游乐场">
+      <div class="home-atmosphere" aria-hidden="true"></div><div class="home-heading"><h1>把普通的图片<br>变成会动的魔法。</h1><p class="home-english">TURN ORDINARY PHOTOS<br>INTO MOVING MAGIC.</p></div><a class="asterisk-link" href="#experiments" aria-label="浏览全部实验">（＊）</a>
+      <div class="gallery-scene" id="galleryScene">
+        <div class="gallery-track" id="cards" role="region" aria-roledescription="轮播" aria-label="11 个创意实验" tabindex="0">
+          <svg class="clothesline" id="clothesline" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="metal" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#53565f"/><stop offset=".42" stop-color="#d1d2d7"/><stop offset="1" stop-color="#44464d"/></linearGradient></defs><path id="clotheslinePath"/></svg>
+        </div>
+      </div>
+      <div class="gallery-bottom"><div class="gallery-pagination"><span id="slideCount" aria-live="polite">01 <i>/ 11</i></span><div class="progress-track"><span id="galleryProgress"></span></div></div><div class="gallery-navigation"><button class="icon-button" id="dockPrev" aria-label="上一个实验">←</button><span class="swipe-label">滑动探索</span><button class="icon-button" id="dockNext" aria-label="下一个实验">→</button></div></div>
+      <a class="scroll-explore" href="#experiments"><span>SCROLL<br>TO EXPLORE</span><i></i></a>
+    </section>
+    <section id="intro" class="intro-page" hidden aria-labelledby="introTitle">
+      <div class="page-topline"><a class="back-link" href="#home" aria-label="返回首页"><span>‹</span></a><span class="eyebrow">01 <i>—</i> 11</span></div>
+      <div class="intro-layout"><div class="intro-copy"><h1 id="introTitle">光栅动画</h1><p class="english-title">SCANIMATION</p><p class="intro-description">两张图片，一次错位，<br>让静止画面在移动中动起来。</p></div>
+      <div class="intro-installation"><img src="assets/scanimation-installation.jpg" alt="立在石质台面上的猫咪光栅玻璃装置" width="960" height="1200"></div>
+      <div class="intro-bottom"><div class="source-pair"><img src="assets/cat-source.jpg" alt="第一张照片"><span>⟶</span><img src="assets/cat-source.jpg" alt="第二张照片，黑白处理"></div><a class="primary-button" href="#editor/scanimation">开始创作 <span>›</span></a></div></div>
+    </section>
+    <section id="experiments" class="experiments-page" hidden aria-label="全部创意实验"><div class="directory-top"><a class="brand" href="#home">PLAYGROUND</a><button class="icon-button" id="directorySearch" aria-label="搜索实验"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="10" cy="10" r="7.4" stroke="currentColor"/><path d="m15.5 15.5 6 6" stroke="currentColor"/></svg></button></div><div class="directory-search" hidden><label for="experimentSearch">搜索实验</label><input id="experimentSearch" type="search" placeholder="搜索实验" autocomplete="off"></div><div class="directory-list" id="directoryList"><svg class="directory-cable" id="directoryCable" preserveAspectRatio="none" aria-hidden="true"><path/></svg></div><p class="no-results" hidden>暂无匹配的实验</p></section>
+    <section id="work" class="work" hidden aria-labelledby="modeTitle">
+      <div class="page-topline"><a id="editorBack" class="back-link" href="#experiment/scanimation"><span>‹</span> 返回</a><button id="topExport" class="top-export">导出</button><span class="eyebrow" id="modeNum">实验 01 / 11</span></div>
+      <div class="editor-title"><div><h1 id="modeTitle">光栅动画</h1><span class="english-title" id="modeEnglish">Scanimation</span></div><span class="editor-label">创作中<span></span></span></div>
+      <div class="editor"><div class="preview-shell"><div class="preview-head"><span>实时预览</span><span id="previewSize">600 × 750</span></div><div class="stage" id="stage"><canvas id="canvas" width="600" height="750" aria-label="互动作品预览"></canvas><div class="overlay" id="overlay"></div><div class="hint" id="hint"></div></div><div class="preview-transport" id="previewTransport"><button class="play-button" id="playButton" aria-label="播放动画" aria-pressed="false">▷</button><input id="phase" type="range" min="0" max="1000" value="0" aria-label="光栅位置"><span id="frameCount">01 / 04</span></div><div id="sequenceStrip" class="sequence-strip"></div></div><aside class="panel"><div class="studio-tabs" id="studioTabs" role="tablist" aria-label="编辑工具"><button id="photoTabOne" role="tab" aria-selected="false" data-tab="photos">图片一</button><button id="photoTabTwo" role="tab" aria-selected="false" data-tab="photos">图片二</button><button id="parameterTab" role="tab" aria-selected="true" data-tab="parameters">参数调整</button></div><p id="modeDesc" hidden></p><div id="controls"></div><div class="actions" id="actions"></div><details class="advanced instructions" id="instructions"><summary>使用说明<span>＋</span></summary><p class="note" id="modeNote"></p></details></aside></div>
+    </section>
+  </main>
+  <dialog class="menu-dialog" id="menuDialog" aria-labelledby="menuTitle"><div class="dialog-topline"><h2 id="menuTitle">选择你的实验</h2><button class="icon-button" data-close="menuDialog" aria-label="关闭目录">×</button></div><div id="experimentMenu" class="experiment-menu"></div><span class="menu-footer">PLAYGROUND / 创意图像实验室</span></dialog>
+  <dialog class="export-dialog" id="exportDialog" aria-labelledby="exportTitle"><div class="dialog-topline"><div><span class="eyebrow">TAKE IT WITH YOU</span><h2 id="exportTitle">导出作品</h2></div><button class="icon-button" data-close="exportDialog" aria-label="关闭导出">×</button></div><div class="export-options"><button id="downloadBase"><span>光栅底图<small>PNG · 600 × 750</small></span><span>↓</span></button><button id="downloadMask"><span>透明光栅卡<small>PNG · 透明背景</small></span><span>↓</span></button><button id="exportGif"><span>动态预览<small>GIF · 360 × 450</small></span><span>↓</span></button><button id="exportVideo"><span>视频<small id="videoFormat">MP4 / WebM · 根据浏览器</small></span><span>↓</span></button></div><p class="export-note">底图与光栅卡需以相同尺寸显示。</p><p id="exportStatus" role="status" aria-live="polite"></p></dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

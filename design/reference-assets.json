@@ -1,0 +1,83 @@
+{
+  "generatedWith": "built-in imagegen",
+  "date": "2026-10-18",
+  "assets": [
+    {
+      "i": 0,
+      "success": true,
+      "imageHash": "3ccf844b0893233643eede0b70a23f8c1bed33bc",
+      "sizeBytes": 112146,
+      "contentType": "image/jpeg",
+      "placedOnNodeId": "11:51"
+    },
+    {
+      "i": 1,
+      "success": true,
+      "imageHash": "4bdf8fdafd8aeefbea497168ad021525e6100c88",
+      "sizeBytes": 397893,
+      "contentType": "image/jpeg",
+      "placedOnNodeId": "11:52"
+    },
+    {
+      "i": 2,
+      "success": true,
+      "imageHash": "fed0351d2a8babc5484d8643dc798143666d542a",
+      "sizeBytes": 216505,
+      "contentType": "image/jpeg",
+      "placedOnNodeId": "11:53"
+    },
+    {
+      "i": 3,
+      "success": true,
+      "imageHash": "80f180065ade31dd84b05a970cb88ef5edebb5fd",
+      "sizeBytes": 5400,
+      "contentType": "image/png",
+      "placedOnNodeId": "11:54"
+    },
+    {
+      "i": 4,
+      "success": true,
+      "imageHash": "b1a8845a1fc5b625887fa028ba38864380206d9e",
+      "sizeBytes": 107936,
+      "contentType": "image/png",
+      "placedOnNodeId": "11:55"
+    },
+    {
+      "i": 5,
+      "success": true,
+      "imageHash": "9e4167b32ef8861b6d2395094d5a497e1957dd08",
+      "sizeBytes": 54898,
+      "contentType": "image/png",
+      "placedOnNodeId": "11:56"
+    },
+    {
+      "i": 6,
+      "success": true,
+      "imageHash": "657465553381680ac2d9721095075349629701b1",
+      "sizeBytes": 20778,
+      "contentType": "image/png",
+      "placedOnNodeId": "11:57"
+    },
+    {
+      "i": 7,
+      "success": true,
+      "imageHash": "64f80ba26778f7ea71e936377c9e5fd7fee01c47",
+      "sizeBytes": 197530,
+      "contentType": "image/png",
+      "placedOnNodeId": "11:58"
+    },
+    {
+      "i": 8,
+      "success": true,
+      "imageHash": "cc620a1eda2b89c387a19b93a4821a6b9f9933cb",
+      "sizeBytes": 34458,
+      "contentType": "image/png",
+      "placedOnNodeId": "11:59"
+    }
+  ],
+  "catSource": {
+    "file": "assets/cat-source.jpg",
+    "imageHash": "06d5454c40da0d30de3e801015b9ad2d4efc5423"
+  },
+  "promptDocumentation": "DESIGN.md"
+}
