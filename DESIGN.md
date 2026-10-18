@@ -8,7 +8,7 @@ Source of truth: the user's four-screen visual reference supplied on 18 October 
 - Text `--ink: #edeeeb`; secondary text `--muted: #93938f`.
 - Divider `--line: #28282a`; metal `--silver: #c5c4c1`.
 - Chinese display: platform Songti serif. Latin display: Georgia. Interface: Helvetica Neue / PingFang SC / Arial.
-- Small tracked wordmark, two-line serif headline, quiet editorial labels.
+- Small tracked wordmark, single-line serif headline “让影像流动”, English tagline “IMAGES IN MOTION”, quiet editorial labels.
 - Three physical materials: smoky glass, polished metal cable and rings, photographic stone tabletop.
 - Optical artworks own the color. Surface gradients reproduce glass reflections and spectral material edges from the supplied reference.
 - Home: striped smile, glass card at the left foreground, other independently linked cards behind, diagonal cold glass edge, warm lower sphere contour.
