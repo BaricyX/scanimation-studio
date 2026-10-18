@@ -14,7 +14,7 @@ Source of truth: the user's four-screen visual reference supplied on 18 October 
 - Home: striped smile, glass card at the left foreground, other independently linked cards behind, diagonal cold glass edge, warm lower sphere contour.
 - Introduction: photographed standing cat scanimation installation; color and monochrome source photos; capsule creation action.
 - Directory: continuous curved cable, alternating suspended artworks, index/title/English label, native searchable navigation for all eleven experiments.
-- Editor: sunset photograph, four-frame sequence, photo/parameter tabs, stripe width, contrast and four animation directions. Secondary controls are collapsible.
+- Editor: orange tabby photograph, four-frame sequence, photo/parameter tabs, stripe width, contrast and four animation directions. Secondary controls are collapsible.
 
 ## Working implementation
 
@@ -30,7 +30,7 @@ All following raster assets were generated with the **built-in imagegen tool**. 
 
 - `assets/optical-atmosphere.jpg` — Prompt: photographic background texture only for the first reference screen; pitch-black portrait environment, a soft silver-blue glass contour descending diagonally from upper right, a large dark sphere with a thin warm pearl-copper rim along the lower edge, restrained grain and smoky reflection, ample dark negative space; no text, cards, cable, icons or UI.
 - `assets/scanimation-installation.jpg` — Prompt: freestanding transparent glass scanimation installation on a rough charcoal stone table; front sheet reveals a warm orange-and-white tabby cat through fine vertical black stripes, a second offset smoky sheet carries a monochrome version; polished silver edges, raking studio light, actual cast shadows, dark sides and top; no text or UI.
-- `assets/sunset.jpg` — Prompt: portrait photograph of a young adult man seen from behind on an empty beach at dusk, black shirt, short dark hair, muted peach sunset and slate-blue ocean, natural film grain; original source photo with no stripes, glass, typography or UI.
+- `assets/sunset.jpg` — Earlier source, retained as an unused asset. Prompt: portrait photograph of a young adult man seen from behind on an empty beach at dusk, black shirt, short dark hair, muted peach sunset and slate-blue ocean, natural film grain; original source photo with no stripes, glass, typography or UI.
 - `assets/cat-source.jpg` — Prompt: clean ordinary portrait photograph of the orange tabby from the front installation, white muzzle and chest, amber-green eyes, charcoal background, face and ears fully visible; remove glass, stripes and tabletop; no UI or text.
 - `assets/cat.jpg` — Earlier built-in imagegen portrait of a silver-grey short-haired cat on a dark ledge. Used as the perspective artwork source.
 
