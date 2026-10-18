@@ -2,7 +2,7 @@
   "name": "playground-optical-studio",
   "version": "1.0.0",
   "private": true,
-  "description": "Eleven browser-local optical art experiments",
+  "description": "Six browser-local optical art experiments",
   "scripts": {
     "dev": "python3 -m http.server 4173 --bind 127.0.0.1",
     "check": "node --check engine.js",

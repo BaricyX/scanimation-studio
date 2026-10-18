@@ -4,11 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#050506">
-  <meta name="description" content="PLAYGROUND 创意游乐场。上传照片，探索 11 种互动艺术实验。">
+  <meta name="description" content="PLAYGROUND 创意游乐场。上传照片，探索 6 种互动光学实验。">
   <title>PLAYGROUND — 创意游乐场</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
-  <script src="engine.js?v=cat-20261018" defer></script>
+  <script src="engine.js?v=six-20261018" defer></script>
 </head>
 <body data-page="home">
   <header class="site-header">
@@ -20,22 +20,22 @@
     <section id="home" class="gallery-home" aria-label="创意游乐场">
       <div class="home-atmosphere" aria-hidden="true"></div><div class="home-heading"><h1>让影像流动</h1><p class="home-english">IMAGES IN MOTION</p></div><a class="asterisk-link" href="#experiments" aria-label="浏览全部实验">（＊）</a>
       <div class="gallery-scene" id="galleryScene">
-        <div class="gallery-track" id="cards" role="region" aria-roledescription="轮播" aria-label="11 个创意实验" tabindex="0">
+        <div class="gallery-track" id="cards" role="region" aria-roledescription="轮播" aria-label="6 个创意实验" tabindex="0">
           <svg class="clothesline" id="clothesline" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="metal" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#53565f"/><stop offset=".42" stop-color="#d1d2d7"/><stop offset="1" stop-color="#44464d"/></linearGradient></defs><path id="clotheslinePath"/></svg>
         </div>
       </div>
-      <div class="gallery-bottom"><div class="gallery-pagination"><span id="slideCount" aria-live="polite">01 <i>/ 11</i></span><div class="progress-track"><span id="galleryProgress"></span></div></div><div class="gallery-navigation"><button class="icon-button" id="dockPrev" aria-label="上一个实验">←</button><span class="swipe-label">滑动探索</span><button class="icon-button" id="dockNext" aria-label="下一个实验">→</button></div></div>
+      <div class="gallery-bottom"><div class="gallery-pagination"><span id="slideCount" aria-live="polite">01 <i>/ 06</i></span><div class="progress-track"><span id="galleryProgress"></span></div></div><div class="gallery-navigation"><button class="icon-button" id="dockPrev" aria-label="上一个实验">←</button><span class="swipe-label">滑动探索</span><button class="icon-button" id="dockNext" aria-label="下一个实验">→</button></div></div>
       <a class="scroll-explore" href="#experiments"><span>SCROLL<br>TO EXPLORE</span><i></i></a>
     </section>
     <section id="intro" class="intro-page" hidden aria-labelledby="introTitle">
-      <div class="page-topline"><a class="back-link" href="#home" aria-label="返回首页"><span>‹</span></a><span class="eyebrow">01 <i>—</i> 11</span></div>
+      <div class="page-topline"><a class="back-link" href="#home" aria-label="返回首页"><span>‹</span></a><span class="eyebrow">01 <i>—</i> 06</span></div>
       <div class="intro-layout"><div class="intro-copy"><h1 id="introTitle">光栅动画</h1><p class="english-title">SCANIMATION</p><p class="intro-description">两张图片，一次错位，<br>让静止画面在移动中动起来。</p></div>
       <div class="intro-installation"><img src="assets/scanimation-installation.jpg" alt="立在石质台面上的猫咪光栅玻璃装置" width="960" height="1200"></div>
       <div class="intro-bottom"><div class="source-pair"><img src="assets/cat-source.jpg" alt="第一张照片"><span>⟶</span><img src="assets/cat-source.jpg" alt="第二张照片，黑白处理"></div><a class="primary-button" href="#editor/scanimation">开始创作 <span>›</span></a></div></div>
     </section>
     <section id="experiments" class="experiments-page" hidden aria-label="全部创意实验"><div class="directory-top"><a class="brand" href="#home">PLAYGROUND</a><button class="icon-button" id="directorySearch" aria-label="搜索实验"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="10" cy="10" r="7.4" stroke="currentColor"/><path d="m15.5 15.5 6 6" stroke="currentColor"/></svg></button></div><div class="directory-search" hidden><label for="experimentSearch">搜索实验</label><input id="experimentSearch" type="search" placeholder="搜索实验" autocomplete="off"></div><div class="directory-list" id="directoryList"><svg class="directory-cable" id="directoryCable" preserveAspectRatio="none" aria-hidden="true"><path/></svg></div><p class="no-results" hidden>暂无匹配的实验</p></section>
     <section id="work" class="work" hidden aria-labelledby="modeTitle">
-      <div class="page-topline"><a id="editorBack" class="back-link" href="#experiment/scanimation"><span>‹</span> 返回</a><button id="topExport" class="top-export">导出</button><span class="eyebrow" id="modeNum">实验 01 / 11</span></div>
+      <div class="page-topline"><a id="editorBack" class="back-link" href="#experiment/scanimation"><span>‹</span> 返回</a><button id="topExport" class="top-export">导出</button><span class="eyebrow" id="modeNum">实验 01 / 06</span></div>
       <div class="editor-title"><div><h1 id="modeTitle">光栅动画</h1><span class="english-title" id="modeEnglish">Scanimation</span></div><span class="editor-label">创作中<span></span></span></div>
       <div class="editor"><div class="preview-shell"><div class="preview-head"><span>实时预览</span><span id="previewSize">600 × 750</span></div><div class="stage" id="stage"><canvas id="canvas" width="600" height="750" aria-label="互动作品预览"></canvas><div class="overlay" id="overlay"></div><div class="hint" id="hint"></div></div><div class="preview-transport" id="previewTransport"><button class="play-button" id="playButton" aria-label="播放动画" aria-pressed="false">▷</button><input id="phase" type="range" min="0" max="1000" value="0" aria-label="光栅位置"><span id="frameCount">01 / 04</span></div><div id="sequenceStrip" class="sequence-strip"></div></div><aside class="panel"><div class="studio-tabs" id="studioTabs" role="tablist" aria-label="编辑工具"><button id="photoTabOne" role="tab" aria-selected="false" data-tab="photos">图片一</button><button id="photoTabTwo" role="tab" aria-selected="false" data-tab="photos">图片二</button><button id="parameterTab" role="tab" aria-selected="true" data-tab="parameters">参数调整</button></div><p id="modeDesc" hidden></p><div id="controls"></div><div class="actions" id="actions"></div><details class="advanced instructions" id="instructions"><summary>使用说明<span>＋</span></summary><p class="note" id="modeNote"></p></details></aside></div>
     </section>

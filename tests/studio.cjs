@@ -12,7 +12,7 @@ const base = process.env.PLAYGROUND_URL || 'http://127.0.0.1:4173';
   const results = path.join(__dirname, '..', 'test-results'); await fs.mkdir(results, {recursive:true});
   await page.goto(base); await page.locator('.gallery-art canvas').first().waitFor();
   await page.waitForFunction(() => document.querySelector('#intro img').complete);
-  assert.equal(await page.locator('.gallery-item').count(), 11);
+  assert.equal(await page.locator('.gallery-item').count(), 6);
   await page.locator('#cards').focus();await page.locator('#cards').press('ArrowRight');
   await page.waitForFunction(() => document.getElementById('slideCount').textContent.startsWith('02'));
   await page.locator('#cards').press('ArrowLeft');
@@ -73,12 +73,15 @@ const base = process.env.PLAYGROUND_URL || 'http://127.0.0.1:4173';
   assert.deepEqual(await pixels(),[[255,0,0,255],[0,0,255,255],[255,0,0,255]]);
   await page.getByRole('button',{name:'向下',exact:true}).click();
   assert.deepEqual(await pixels(),[[255,0,0,255],[255,0,0,255],[0,0,255,255]]);
-  const slugs=['scratch','tilt','typography','liquid','story','perspective','stereogram','folding','infinite','color'];
+  const slugs=['scratch','tilt','liquid','secret','infinite'];
   for(const slug of slugs){await page.goto(base+'/#editor/'+slug);await page.waitForTimeout(150);assert.equal(await page.locator('#work').isVisible(),true);assert.ok(await page.locator('#actions button').count());await page.mouse.move(100,300);await page.mouse.down();await page.mouse.move(180,350,{steps:3});await page.mouse.up();}
-  await page.goto(base);await page.getByRole('button',{name:'打开实验目录'}).click();assert.equal(await page.locator('.directory-entry').count(),11);await page.getByRole('button',{name:'搜索实验'}).click();await page.getByRole('searchbox').fill('光栅');assert.equal(await page.locator('.directory-entry:visible').count(),1);await page.getByRole('searchbox').fill('unmatched-xyz');assert.equal(await page.locator('.no-results').isVisible(),true);await page.waitForFunction(()=>document.getElementById('directoryCable').style.height==='0px');
+  for(const shelved of ['typography','story','stereogram']){await page.goto(base+'/#editor/'+shelved);await page.waitForFunction(()=>location.hash==='#home')}
+  for(const merged of ['perspective','folding','color']){await page.goto(base+'/#editor/'+merged);await page.waitForFunction(()=>location.hash==='#editor/secret')}
+  await page.goto(base+'/#editor/secret');for(const style of ['折页','斜视','红膜']){await page.getByRole('button',{name:style,exact:true}).click();const before=await page.locator('#canvas').evaluate(c=>c.toDataURL());const b=await page.locator('#stage').boundingBox();await page.mouse.move(b.x+20,b.y+b.height/2);await page.mouse.down();await page.mouse.move(b.x+b.width-20,b.y+b.height/2,{steps:4});await page.mouse.up();assert.notEqual(await page.locator('#canvas').evaluate(c=>c.toDataURL()),before,style)}
+  await page.goto(base);await page.getByRole('button',{name:'打开实验目录'}).click();assert.equal(await page.locator('.directory-entry').count(),6);await page.getByRole('button',{name:'搜索实验'}).click();await page.getByRole('searchbox').fill('光栅');assert.equal(await page.locator('.directory-entry:visible').count(),1);await page.getByRole('searchbox').fill('unmatched-xyz');assert.equal(await page.locator('.no-results').isVisible(),true);await page.waitForFunction(()=>document.getElementById('directoryCable').style.height==='0px');
   for(const width of [320,390,768,1440]){await page.setViewportSize({width,height:900});for(const route of ['#home','#experiment/scanimation','#experiments','#editor/scanimation']){await page.goto(base+'/'+route);await page.waitForTimeout(200);assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false,`overflow ${width} ${route}`)} }
   await page.setViewportSize({width:1440,height:1000});await page.goto(base);await page.waitForTimeout(500);await page.screenshot({path:path.join(results,'home-desktop.png'),fullPage:true});
   const reduced = await browser.newPage({viewport:{width:390,height:844},reducedMotion:'reduce'});await reduced.goto(base+'/#experiment/scanimation');assert.equal(await reduced.locator('.intro-copy h1').evaluate(e=>getComputedStyle(e).animationName),'none');await reduced.close();
-  assert.deepEqual(errors,[]);console.log('PASS: eleven routes, upload validation/reorder/remove, retained photos, drag/play, both directions, PNG/GIF downloads, dialogs, keyboard, reduced motion, and 320/390/768/1440 layouts.');
+  assert.deepEqual(errors,[]);console.log('PASS: six routes, shelved/merged redirects, three secret-card styles, upload validation/reorder/remove, retained photos, drag/play, both directions, PNG/GIF downloads, dialogs, keyboard, reduced motion, and 320/390/768/1440 layouts.');
   await browser.close();
 })().catch(e=>{console.error(e);process.exit(1)});
